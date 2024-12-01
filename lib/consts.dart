@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
+// animationDuration time definition
+const animationDuration = Duration(milliseconds: 200);
+
 // default constant value for padding size
 const defaultPadding = 20.0;
 

@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:gojek/size_config.dart';
+import 'package:gojek/ui/onboarding/components/body.dart';
 
-class OnboardingScreen extends StatefulWidget {
+class OnboardingScreen extends StatelessWidget {
   const OnboardingScreen({super.key});
 
   @override
-  State<OnboardingScreen> createState() => _OnboardingScreenState();
-}
-
-class _OnboardingScreenState extends State<OnboardingScreen> {
-  @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    SizeConfig().init(context);
+    return const Scaffold(
+      body: Body(),
+    );
   }
 }

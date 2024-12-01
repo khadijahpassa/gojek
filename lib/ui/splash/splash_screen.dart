@@ -28,7 +28,10 @@ class _SplashScreenState extends State<SplashScreen> {
     return Scaffold(
       backgroundColor: green1,
       body: Center(
-        child: Image.asset('assets/images/gojek-logo-white.png'),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 80),
+          child: Image.asset('assets/images/gojek-logo-white.png'),
+        ),
       ),
     );
   }
