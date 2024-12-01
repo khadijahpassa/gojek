@@ -1,16 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:gojek/ui/splash/splash_screen.dart';
 
-class Gojek extends StatefulWidget {
-  const Gojek({super.key});
-
-  @override
-  State<Gojek> createState() => _GojekState();
+void main() {
+  runApp(const MyApp());
 }
 
-class _GojekState extends State<Gojek> {
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return const SplashScreen();
+    return MaterialApp(
+      debugShowCheckedModeBanner: false, // Menghilangkan banner debug
+      title: 'Gojek',
+
+      theme: ThemeData(primarySwatch: Colors.green, fontFamily: 'SF-Pro'),
+      home: const SplashScreen(),
+    );
   }
 }

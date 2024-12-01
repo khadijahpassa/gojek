@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:gojek/consts.dart';
+import 'package:gojek/home/home.dart';
 import 'package:gojek/ui/onboarding/onboarding_screen.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -17,7 +18,7 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState(); // Memastikan inisialisasi superclass
     Timer(const Duration(seconds: 3), () {
       Navigator.of(context).pushReplacement(MaterialPageRoute(
-        builder: (context) => const OnboardingScreen(),
+        builder: (context) => const Home(),
       ));
     });
   }

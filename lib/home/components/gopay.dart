@@ -17,7 +17,7 @@ class Pay extends StatelessWidget {
       child: Container(
         height: 96,
         decoration: BoxDecoration(
-            color: Colors.blue, borderRadius: BorderRadius.circular(15)),
+            color: darkBlue, borderRadius: BorderRadius.circular(15)),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
@@ -54,7 +54,7 @@ class Pay extends StatelessWidget {
                     height: 11,
                     width: 110,
                     decoration: const BoxDecoration(
-                        color: Color(0xFFF8B492),
+                        color: Color(0xFF9CCDDB),
                         borderRadius:
                             BorderRadius.vertical(bottom: Radius.circular(8))),
                   ),
@@ -65,31 +65,26 @@ class Pay extends StatelessWidget {
                     height: 68,
                     width: 128,
                     padding:
-                        const EdgeInsets.symmetric(horizontal: 6, vertical: 8),
+                        const EdgeInsets.symmetric(horizontal: 6, vertical: 6),
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(8),
                     ),
-                    child: const Column(
+                    child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          "KicPay",
-                          style: TextStyle(
-                              fontSize: 15,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.blue),
+                        Image.asset(
+                          'assets/images/gopay_logo.png',
+                          height: 14,
                         ),
                         SizedBox(
                           height: 1,
                         ),
+                        Text('Rp12.000', style: bold16.copyWith(color: black)),
                         Text(
-                          'Rp12.000',
-                          style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.black),
+                          'Klik & Cek Riwayat',
+                          style: semibold12_5.copyWith(color: primaryColor),
                         ),
                       ],
                     ),
