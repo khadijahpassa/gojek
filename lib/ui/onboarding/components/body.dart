@@ -111,17 +111,16 @@ class _BodyState extends State<Body> {
             ),
             Expanded(
               child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: List.generate(
-                      onboardingData
-                          .length, //List.generate(untuk menghasilkan jumlah widget dots sesuai dengan panjang data splashData)
-                      (index) => _dotsIndicator(
-                          index:
-                              index) //mengakses index untuk menentukan posisi dot yang aktif
-                      )),
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: List.generate(
+                  onboardingData.length, //List.generate(untuk menghasilkan jumlah widget dots sesuai dengan panjang data splashData)
+                  (index) => _dotsIndicator(index:index) //mengakses index untuk menentukan posisi dot yang aktif
+                )),
             ),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(context, '/login');
+              },
               style: ElevatedButton.styleFrom(
                   backgroundColor: primaryColor,
                   minimumSize: const Size(double.infinity, 42),
@@ -135,8 +134,11 @@ class _BodyState extends State<Body> {
               ),
             ),
             const SizedBox(height: 10),
+
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(context, '/register');
+              },
               style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.white,
                   minimumSize: const Size(double.infinity, 42),

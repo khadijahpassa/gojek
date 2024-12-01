@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:gojek/ui/auth/login_screen.dart';
+import 'package:gojek/ui/auth/register_screen.dart';
 import 'package:gojek/ui/splash/splash_screen.dart';
 
 void main() => runApp(const Gojek());
@@ -21,6 +23,8 @@ class _GojekState extends State<Gojek> {
       routes: {
         // format pasangan key : value adalah => nama rute : kelas yang dituju
         '/': (context) => const SplashScreen(),
+        '/login': (context) => const LoginScreen(),
+        '/register': (context) => const RegisterScreen(),
       },
     );
   }
