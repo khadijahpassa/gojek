@@ -39,11 +39,16 @@ dependencies:
   provider : ^6.1.2 #library for State Management
   intl: ^0.17.0 #library for number format
   shared_preferences: ^2.3.3
+
   mobile_scanner: ^6.0.2
   permission_handler: ^11.3.1
   pretty_qr_code: ^3.3.0
   screenshot: ^3.0.0
   share_plus: ^10.1.2
+
+  flutter_map: ^5.0.0
+  latlong2:  ^0.9.1
+
 
 dev_dependencies:
   flutter_test:

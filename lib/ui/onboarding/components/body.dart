@@ -122,7 +122,7 @@ class _BodyState extends State<Body> {
             ),
             ElevatedButton(
               onPressed: () {
-                Navigator.pushNamed(context, '/home');
+                Navigator.pushNamed(context, '/login');
               },
               style: ElevatedButton.styleFrom(
                   backgroundColor: primaryColor,
@@ -138,7 +138,9 @@ class _BodyState extends State<Body> {
             ),
             const SizedBox(height: 10),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(context, '/register');
+              },
               style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.white,
                   minimumSize: const Size(double.infinity, 42),
