@@ -111,11 +111,14 @@ class _BodyState extends State<Body> {
             ),
             Expanded(
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: List.generate(
-                  onboardingData.length, //List.generate(untuk menghasilkan jumlah widget dots sesuai dengan panjang data splashData)
-                  (index) => _dotsIndicator(index:index) //mengakses index untuk menentukan posisi dot yang aktif
-                )),
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: List.generate(
+                      onboardingData
+                          .length, //List.generate(untuk menghasilkan jumlah widget dots sesuai dengan panjang data splashData)
+                      (index) => _dotsIndicator(
+                          index:
+                              index) //mengakses index untuk menentukan posisi dot yang aktif
+                      )),
             ),
             ElevatedButton(
               onPressed: () {
@@ -134,7 +137,6 @@ class _BodyState extends State<Body> {
               ),
             ),
             const SizedBox(height: 10),
-
             ElevatedButton(
               onPressed: () {
                 Navigator.pushNamed(context, '/register');
