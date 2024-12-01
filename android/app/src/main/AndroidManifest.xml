@@ -2,7 +2,7 @@
     <application
         android:label="gojek"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/ic_gojek">
         <activity
             android:name=".MainActivity"
             android:exported="true"
