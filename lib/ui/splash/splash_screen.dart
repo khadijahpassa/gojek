@@ -28,7 +28,7 @@ class _SplashScreenState extends State<SplashScreen> {
       backgroundColor: primaryColor,
       body: Center(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 80),
+          padding: const EdgeInsets.symmetric(horizontal: 100),
           child: Image.asset('assets/images/gojek-logo-white.png'),
         ),
       ),
