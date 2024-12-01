@@ -22,7 +22,7 @@ class OnboardingContent extends StatelessWidget {
         Text(
           subtitle,
           textAlign: TextAlign.center,
-          style: const TextStyle(fontSize: 16, color: dark2)
+          style: const TextStyle(fontSize: 16, color: darkGrey)
         ),
       ],
     );

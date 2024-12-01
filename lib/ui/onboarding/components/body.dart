@@ -81,7 +81,7 @@ class _BodyState extends State<Body> {
                     icon: const Icon(Icons.translate_rounded),
                     label: const Text("English"),
                     style: OutlinedButton.styleFrom(
-                      foregroundColor: dark2
+                      foregroundColor: darkGrey
                     ),
                   )
                 ],
@@ -119,7 +119,7 @@ class _BodyState extends State<Body> {
               ElevatedButton(
                 onPressed: (){}, 
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: green1,
+                  backgroundColor: primaryColor,
                   minimumSize: const Size(double.infinity, 42),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20),
@@ -130,7 +130,7 @@ class _BodyState extends State<Body> {
                   style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
-                    color: dark4
+                    color: white
                   ),
                 ),
               ),
@@ -143,7 +143,7 @@ class _BodyState extends State<Body> {
                   minimumSize: const Size(double.infinity, 42),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20),
-                    side: const BorderSide(color: green1)
+                    side: const BorderSide(color: primaryColor)
                   )
                 ),
                 child: const Text(
@@ -151,7 +151,7 @@ class _BodyState extends State<Body> {
                   style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
-                    color: green1
+                    color: primaryColor
                   ),
                 ),
               ),
@@ -164,7 +164,7 @@ class _BodyState extends State<Body> {
                         TextSpan(
                             text: 'By logging in or registering, you agree to our ',
                             style: TextStyle(
-                                color: dark1,
+                                color: black,
                                 fontSize: 14,
                                 fontWeight: FontWeight.w300,
                             ),
@@ -172,7 +172,7 @@ class _BodyState extends State<Body> {
                         TextSpan(
                             text: 'Terms of Service',
                             style: TextStyle(
-                                color: green1,
+                                color: primaryColor,
                                 fontSize: 14,
                                 fontWeight: FontWeight.w300,
                             ),
@@ -180,7 +180,7 @@ class _BodyState extends State<Body> {
                         TextSpan(
                             text: ' and ',
                             style: TextStyle(
-                                color: dark1,
+                                color: black,
                                 fontSize: 14,
                                 fontWeight: FontWeight.w300,
                             ),
@@ -188,7 +188,7 @@ class _BodyState extends State<Body> {
                         TextSpan(
                             text: 'Privacy policy',
                             style: TextStyle(
-                                color: green1,
+                                color: primaryColor,
                                 fontSize: 14,
                                 fontWeight: FontWeight.w300,
                             ),
@@ -196,7 +196,7 @@ class _BodyState extends State<Body> {
                         TextSpan(
                             text: '.',
                             style: TextStyle(
-                                color: dark1,
+                                color: black,
                                 fontSize: 14,
                                 fontWeight: FontWeight.w300,
                             ),
@@ -218,7 +218,7 @@ class _BodyState extends State<Body> {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
         // dots halaman yang aktif, warnanya jadi primary
-        color: currentPage == index ? green1 : dark3,
+        color: currentPage == index ? primaryColor : lightGrey,
       ),
       width: currentPage == index ? 20 : 10,
       height: 10,
