@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gojek/ui/splash/splash_screen.dart';
 
 class Gojek extends StatefulWidget {
   const Gojek({super.key});
@@ -10,6 +11,6 @@ class Gojek extends StatefulWidget {
 class _GojekState extends State<Gojek> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return const SplashScreen();
   }
 }
