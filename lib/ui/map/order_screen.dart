@@ -42,6 +42,20 @@ class OrderScreen extends StatelessWidget {
                       ),
                       )
                   ],
+                ),
+                MarkerLayer(
+                  markers: [
+                    Marker(
+                      point: const LatLng(-6.485108, 107.047101), 
+                      width: 80.0,
+                      height: 80.0,
+                      builder: (context) => const Icon(
+                        Icons.car_crash,
+                        color: Colors.green,
+                        size: 40,
+                      ),
+                      )
+                  ],
                 )
               ],
             ),
