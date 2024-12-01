@@ -102,7 +102,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     ElevatedButton(
                       onPressed: () {
                         if (_formKey.currentState!.validate()) {
-                          
+                          Navigator.pushNamed(context, '/home');
                         }
                       },
                       style: ElevatedButton.styleFrom(
@@ -114,7 +114,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                       child: Text(
                         'Sign In',
-                        style: TextStyle(fontSize: 16, color: white),
+                        style: TextStyle(fontSize: 16, color: Colors.white),
                       ),
                     ),
                     const SizedBox(height: 16),

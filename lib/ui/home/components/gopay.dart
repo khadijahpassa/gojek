@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:gojek/consts.dart';
 import 'package:gojek/data/icons.dart';
-import 'package:gojek/ui/scanner_paymet/scanner.dart';
 
 class Pay extends StatelessWidget {
   const Pay({super.key});
@@ -73,17 +72,7 @@ class Pay extends StatelessWidget {
             ...gopayIcons.map((icon) => Flexible(
                   fit: FlexFit.tight,
                   child: GestureDetector(
-                    onTap: () {
-                      if (icon.icon == 'topup') {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) =>
-                                QrScannerScreen(), // Replace with your target page
-                          ),
-                        );
-                      }
-                    },
+                    onTap: () {},
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [

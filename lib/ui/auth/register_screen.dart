@@ -122,7 +122,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     ElevatedButton(
                       onPressed: () {
                         if (_formKey.currentState!.validate()) {
-                          // Handle successful validation and sign-up logic here
+                          Navigator.pushNamed(context, '/home');
                         }
                       },
                       style: ElevatedButton.styleFrom(
@@ -134,7 +134,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       ),
                       child: Text(
                         'Sign Up',
-                        style: TextStyle(fontSize: 16, color: white),
+                        style: TextStyle(fontSize: 16, color: Colors.white),
                       ),
                     ),
                     const SizedBox(height: 16),

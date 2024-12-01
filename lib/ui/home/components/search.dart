@@ -21,7 +21,7 @@ class Search extends StatelessWidget {
                 );
               },
               child: Container(
-                padding: const EdgeInsets.all(8),
+                padding: const EdgeInsets.all(5),
                 decoration: BoxDecoration(
                     color: const Color(0xfffafafa),
                     borderRadius: BorderRadius.circular(30),
@@ -54,12 +54,17 @@ class Search extends StatelessWidget {
             height: 35,
             child: Stack(
               children: [
-                Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(35 / 2),
+                GestureDetector(
+                  onTap: (){
+                   Navigator.pushNamed(context, '/profile');
+                  },
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(35 / 2),
+                    ),
+                    clipBehavior: Clip.hardEdge,
+                    child: Image.asset('assets/images/Avatar.png'),
                   ),
-                  clipBehavior: Clip.hardEdge,
-                  child: Image.asset('assets/images/gopay.png'),
                 ),
                 Positioned(
                     right: 0,
