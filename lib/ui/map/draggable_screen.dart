@@ -146,7 +146,7 @@ class _MyDraggableSheetState extends State<MyDraggableSheet> {
   void animateSheet(double size) { //fungsi yg bertanggung jawaba atas animasi sheet
     controller.animateTo(
       size,
-      duration: const Duration(milliseconds: 30),
+      duration: const Duration(milliseconds: 20),
       curve: Curves.easeInOut,
     );
   }
@@ -166,7 +166,7 @@ class _MyDraggableSheetState extends State<MyDraggableSheet> {
       return DraggableScrollableSheet(
         key: sheet, //kunci ini untuk mengidentifikasi widget sheet
         initialChildSize: 0.4, //ukuran yg akan pertama kali muncul di awal
-        maxChildSize: 0.67, //ukuran maksiumum sheet yg bisa berkembang smpai 67%
+        maxChildSize: 0.70, //ukuran maksiumum sheet yg bisa berkembang smpai 67%
         minChildSize: 0,  //Ukuran minimum sheet (0 layar, yg artinya bisa disembunyikan). jika di drag ke bwh dia akan hilang
         expand: true, //Membuat sheet dapat mengembang 
         snap: true, //akan berhenti di ukuran tertentu
