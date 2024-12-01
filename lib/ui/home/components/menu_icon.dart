@@ -9,10 +9,9 @@ class MenuIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(
-          left: defaultPadding, right: defaultPadding, top: defaultPadding),
+      padding: EdgeInsets.only(left: defaultPadding, right: defaultPadding),
       child: SizedBox(
-        height: 157,
+        height: 198,
         child: GridView.count(
           crossAxisCount: 4,
           mainAxisSpacing: 8,

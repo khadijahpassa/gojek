@@ -121,7 +121,9 @@ class _BodyState extends State<Body> {
                       )),
             ),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(context, '/home');
+              },
               style: ElevatedButton.styleFrom(
                   backgroundColor: primaryColor,
                   minimumSize: const Size(double.infinity, 42),
