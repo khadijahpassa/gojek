@@ -14,17 +14,14 @@ class _GojekState extends State<Gojek> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'Gojek',
-        theme: ThemeData(
-          fontFamily: 'SF-Pro',
-          visualDensity: VisualDensity.adaptivePlatformDensity,
-        ),
-        initialRoute: '/',
-        routes: {
-          // format pasangan key : value adalah => nama rute : kelas yang dituju
-          '/' : (context) => const SplashScreen(),
-        },
-      );
+      debugShowCheckedModeBanner: false, // Menghilangkan banner debug
+      title: 'Gojek',
+      theme: ThemeData(primarySwatch: Colors.green, fontFamily: 'SF-Pro'),
+      initialRoute: '/',
+      routes: {
+        // format pasangan key : value adalah => nama rute : kelas yang dituju
+        '/': (context) => const SplashScreen(),
+      },
+    );
   }
 }
