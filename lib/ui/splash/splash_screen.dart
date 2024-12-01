@@ -16,17 +16,16 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState(); // Memastikan inisialisasi superclass
     Timer(const Duration(seconds: 3), () {
-      Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (context) => const OnboardingScreen(),
+      Navigator.of(context).pushReplacement(MaterialPageRoute(
+        builder: (context) => const OnboardingScreen(),
       ));
     });
   }
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: green1,
+      backgroundColor: primaryColor,
       body: Center(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 80),

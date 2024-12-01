@@ -7,20 +7,20 @@ const animationDuration = Duration(milliseconds: 200);
 // default constant value for padding size
 const defaultPadding = 20.0;
 
-const green1 =  Color(0xFF097210);
-const green2 =  Color(0xFF00880F);
+const primaryColor = Color(0xFF097210);
+const secondaryColor = Color(0xFF00880F);
 
-const dark1 =  Color(0xFF1C1C1C);
-const dark2 =  Color(0xFF4A4A4A);
-const dark3 =  Color(0xFF999798);
-const dark4 =  Color(0xFFEDEDED);
+const black = Color(0xFF1C1C1C);
+const darkGrey = Color(0xFF4A4A4A);
+const lightGrey = Color(0xFF999798);
+const white = Color(0xFFEDEDED);
 
-const blue1 =  Color(0xFF0281A0);
-const blue2 =  Color(0xFF00AED5);
-const blue3 =  Color(0xFF38BBDA);
+const darkBlue = Color(0xFF0281A0);
+const blue = Color(0xFF00AED5);
+const lightBlue = Color(0xFF38BBDA);
 
-const red =  Color(0xFFED2739);
-const purple =  Color(0xFF87027B);
+const red = Color(0xFFED2739);
+const purple = Color(0xFF87027B);
 
 // Typography
 TextStyle regular12_5 =
