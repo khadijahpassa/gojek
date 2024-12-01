@@ -21,7 +21,8 @@ class _BodyState extends State<Body> {
     {
       "image": "assets/images/splash_1.png",
       "title": "Welcome to Gojek!",
-      "subtitle": "Your go-to app for a hassle-free life. We're here to help all your needs, anytime and anywhere",
+      "subtitle":
+          "Your go-to app for a hassle-free life. We're here to help all your needs, anytime and anywhere",
     },
     {
       "image": "assets/images/splash_2.png",
@@ -68,149 +69,141 @@ class _BodyState extends State<Body> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(defaultPadding),
-          child: Column(
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Image.asset("assets/images/gojek-logo.png"),
-                  OutlinedButton.icon(
-                    onPressed: () {}, 
-                    icon: const Icon(Icons.translate_rounded),
-                    label: const Text("English"),
-                    style: OutlinedButton.styleFrom(
-                      foregroundColor: darkGrey
-                    ),
-                  )
-                ],
-              ),
-              Expanded(
-                flex: 3,
-                child: SizedBox(
-                    width: double.infinity, //biar di tengah dengan titik koor 0.0
-                    child: PageView.builder( //nampung data slide, builder: membangun data
-                        controller: _pageController, 
-                        onPageChanged: (value) {
-                          // initial state method for statefulWidget behavior. method yang meng-set state awal untuk perilaku statefulWidget, ketika kita mau mengawali statefulWidget dengan apa
-                          setState(() {
-                            currentPage = value;
-                          });
-                        },
-                        itemCount: onboardingData.length, //memberikan batasan slide, length: definisi panjang array(data)
-                        // sebagai adapter antara splashData & SplashContent 
-                        itemBuilder: (context, index) => OnboardingContent( //context: memperkenalkan dlu kalo ini tuh punya body.dart, index: akses list data array
-                            title: onboardingData[index]["title"]!, 
-                            subtitle: onboardingData[index]["subtitle"]!, 
-                            image: onboardingData[index]["image"]!),
-                     ),
-                  ),
-              ),
-              Expanded(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: List.generate(onboardingData.length, //List.generate(untuk menghasilkan jumlah widget dots sesuai dengan panjang data splashData)
-                      (index) => _dotsIndicator(index: index)  //mengakses index untuk menentukan posisi dot yang aktif
-                    )
+          child: Padding(
+        padding: const EdgeInsets.all(defaultPadding),
+        child: Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Image.asset("assets/images/gojek-logo.png"),
+                OutlinedButton.icon(
+                  onPressed: () {},
+                  icon: const Icon(Icons.translate_rounded),
+                  label: const Text("English"),
+                  style: OutlinedButton.styleFrom(foregroundColor: darkGrey),
+                )
+              ],
+            ),
+            Expanded(
+              flex: 3,
+              child: SizedBox(
+                width: double.infinity, //biar di tengah dengan titik koor 0.0
+                child: PageView.builder(
+                  //nampung data slide, builder: membangun data
+                  controller: _pageController,
+                  onPageChanged: (value) {
+                    // initial state method for statefulWidget behavior. method yang meng-set state awal untuk perilaku statefulWidget, ketika kita mau mengawali statefulWidget dengan apa
+                    setState(() {
+                      currentPage = value;
+                    });
+                  },
+                  itemCount: onboardingData
+                      .length, //memberikan batasan slide, length: definisi panjang array(data)
+                  // sebagai adapter antara splashData & SplashContent
+                  itemBuilder: (context, index) => OnboardingContent(
+                      //context: memperkenalkan dlu kalo ini tuh punya body.dart, index: akses list data array
+                      title: onboardingData[index]["title"]!,
+                      subtitle: onboardingData[index]["subtitle"]!,
+                      image: onboardingData[index]["image"]!),
                 ),
               ),
-          
-              ElevatedButton(
-                onPressed: (){}, 
-                style: ElevatedButton.styleFrom(
+            ),
+            Expanded(
+              child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: List.generate(
+                      onboardingData
+                          .length, //List.generate(untuk menghasilkan jumlah widget dots sesuai dengan panjang data splashData)
+                      (index) => _dotsIndicator(
+                          index:
+                              index) //mengakses index untuk menentukan posisi dot yang aktif
+                      )),
+            ),
+            ElevatedButton(
+              onPressed: () {},
+              style: ElevatedButton.styleFrom(
                   backgroundColor: primaryColor,
                   minimumSize: const Size(double.infinity, 42),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20),
-                  )
-                ),
-                child: const Text(
-                  'Login',
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                    color: white
-                  ),
-                ),
+                  )),
+              child: const Text(
+                'Login',
+                style: TextStyle(
+                    fontSize: 18, fontWeight: FontWeight.bold, color: white),
               ),
-              const SizedBox(height: 10),
-              
-              ElevatedButton(
-                onPressed: (){}, 
-                style: ElevatedButton.styleFrom(
+            ),
+            const SizedBox(height: 10),
+            ElevatedButton(
+              onPressed: () {},
+              style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.white,
                   minimumSize: const Size(double.infinity, 42),
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20),
-                    side: const BorderSide(color: primaryColor)
-                  )
-                ),
-                child: const Text(
-                  "I'm new, sign me up",
-                  style: TextStyle(
+                      borderRadius: BorderRadius.circular(20),
+                      side: const BorderSide(color: primaryColor))),
+              child: const Text(
+                "I'm new, sign me up",
+                style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
-                    color: primaryColor
-                  ),
-                ),
+                    color: primaryColor),
               ),
-
-              const SizedBox(height: 20),
-
-              const Text.rich(
-                TextSpan(
-                    children: [
-                        TextSpan(
-                            text: 'By logging in or registering, you agree to our ',
-                            style: TextStyle(
-                                color: black,
-                                fontSize: 14,
-                                fontWeight: FontWeight.w300,
-                            ),
-                        ),
-                        TextSpan(
-                            text: 'Terms of Service',
-                            style: TextStyle(
-                                color: primaryColor,
-                                fontSize: 14,
-                                fontWeight: FontWeight.w300,
-                            ),
-                        ),
-                        TextSpan(
-                            text: ' and ',
-                            style: TextStyle(
-                                color: black,
-                                fontSize: 14,
-                                fontWeight: FontWeight.w300,
-                            ),
-                        ),
-                        TextSpan(
-                            text: 'Privacy policy',
-                            style: TextStyle(
-                                color: primaryColor,
-                                fontSize: 14,
-                                fontWeight: FontWeight.w300,
-                            ),
-                        ),
-                        TextSpan(
-                            text: '.',
-                            style: TextStyle(
-                                color: black,
-                                fontSize: 14,
-                                fontWeight: FontWeight.w300,
-                            ),
-                        ),
-                    ],
-                ),
+            ),
+            const SizedBox(height: 20),
+            const Text.rich(
+              TextSpan(
+                children: [
+                  TextSpan(
+                    text: 'By logging in or registering, you agree to our ',
+                    style: TextStyle(
+                      color: black,
+                      fontSize: 14,
+                      fontWeight: FontWeight.w300,
+                    ),
+                  ),
+                  TextSpan(
+                    text: 'Terms of Service',
+                    style: TextStyle(
+                      color: primaryColor,
+                      fontSize: 14,
+                      fontWeight: FontWeight.w300,
+                    ),
+                  ),
+                  TextSpan(
+                    text: ' and ',
+                    style: TextStyle(
+                      color: black,
+                      fontSize: 14,
+                      fontWeight: FontWeight.w300,
+                    ),
+                  ),
+                  TextSpan(
+                    text: 'Privacy policy',
+                    style: TextStyle(
+                      color: primaryColor,
+                      fontSize: 14,
+                      fontWeight: FontWeight.w300,
+                    ),
+                  ),
+                  TextSpan(
+                    text: '.',
+                    style: TextStyle(
+                      color: black,
+                      fontSize: 14,
+                      fontWeight: FontWeight.w300,
+                    ),
+                  ),
+                ],
+              ),
             )
-            ],
-          ),
-        )
-      ),
+          ],
+        ),
+      )),
     );
   }
-  
+
   AnimatedContainer _dotsIndicator({required int index}) {
     return AnimatedContainer(
       duration: animationDuration,
