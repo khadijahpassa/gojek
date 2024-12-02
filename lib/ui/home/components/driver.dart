@@ -1,12 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:gojek/consts.dart';
+import 'package:provider/provider.dart';
+import 'package:gojek/state-management/theme_provider.dart';
 
 class Driver extends StatelessWidget {
   const Driver({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final themeProvider = Provider.of<ThemeProvider>(context);
+
+    // Ambil warna teks yang sesuai dengan mode tema
+    final textColor = themeProvider.isDarkTheme ? Colors.white : Colors.black;
+
     return Padding(
       padding: EdgeInsets.all(defaultPadding),
       child: Column(
@@ -14,22 +21,28 @@ class Driver extends StatelessWidget {
         children: [
           Text(
             'Akses Cepat',
-            style: bold18.copyWith(color: black),
+            style: bold18.copyWith(color: textColor),
           ),
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
           Container(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(15),
-              border: Border.all(color: Color(0xffe8e8e8)),
+              border: Border.all(
+                color: themeProvider.isDarkTheme
+                    ? const Color(0xff4d4d4d)
+                    : const Color(0xffe8e8e8),
+              ),
             ),
-            child: Column(children: [
-              ...[
-                'Pintu masuk motor, MNC Land',
-                'Pintu kelaur mobil, Grand Indonesia'
-              ].map((text) => Padding(
-                    padding: EdgeInsets.all(15),
+            child: Column(
+              children: [
+                ...[
+                  'Pintu masuk motor, MNC Land',
+                  'Pintu keluar mobil, Grand Indonesia'
+                ].map(
+                  (text) => Padding(
+                    padding: const EdgeInsets.all(15),
                     child: Row(
                       children: [
                         Container(
@@ -52,17 +65,22 @@ class Driver extends StatelessWidget {
                           fit: FlexFit.tight,
                           child: Text(
                             text,
-                            style: regular14.copyWith(color: black),
+                            style: regular14.copyWith(color: textColor),
                           ),
                         ),
                         const Padding(
                           padding: EdgeInsets.only(left: 5),
-                          child: (Icon(Icons.arrow_forward_ios_rounded)),
+                          child: Icon(
+                            Icons.arrow_forward_ios_rounded,
+                            size: 16,
+                          ),
                         )
                       ],
                     ),
-                  )),
-            ]),
+                  ),
+                ),
+              ],
+            ),
           )
         ],
       ),

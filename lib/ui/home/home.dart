@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gojek/state-management/theme_provider.dart';
 import 'package:gojek/ui/home/components/bottom_nav.dart';
 import 'package:gojek/ui/home/components/search.dart';
 import 'package:gojek/ui/home/components/menu_icon.dart';
@@ -8,6 +9,7 @@ import 'package:gojek/ui/home/components/gopay_later.dart';
 import 'package:gojek/ui/home/components/gopay.dart';
 import 'package:gojek/ui/profile/profile_screen.dart';
 import 'package:gojek/ui/settings/settings.dart';
+import 'package:provider/provider.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -20,7 +22,8 @@ class _HomeState extends State<Home> {
   int _selectedIndex = 0;
   final List<Widget> _widgetOptions = [
     const Home(),
-    const SettingsScreen(), 
+    const SettingsScreen(),
+    const SettingsScreen(),
     const ProfileScreen()
   ];
 
@@ -35,59 +38,62 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
+    final themeProvider = Provider.of<ThemeProvider>(context);
+
+    // Ambil warna teks yang sesuai dengan mode tema
+    final textColor = themeProvider.isDarkTheme ? Colors.white : Colors.black;
     return Scaffold(
       backgroundColor: Colors.white,
-      body: _selectedIndex == 0 ? Column(
-        children: [
-          // Header (tidak scrollable)
-          Stack(
-            children: [
-              Container(
-                height: 200,
-                decoration: const BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage('assets/images/header.png'),
-                    fit: BoxFit.cover,
+      body: _selectedIndex == 0
+          ? Column(
+              children: [
+                // Header (tidak scrollable)
+                Stack(
+                  children: [
+                    Container(
+                      height: 200,
+                      decoration: const BoxDecoration(
+                        image: DecorationImage(
+                          image: AssetImage('assets/images/header.png'),
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    ),
+                    const Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 16.0, vertical: 20.0),
+                          child: Search(),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(top: 40.0),
+                          child: Pay(),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+
+                // Konten yang bisa di-scroll
+                const Expanded(
+                  child: SingleChildScrollView(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        SizedBox(height: 10.0),
+                        MenuIcon(),
+                        Poin(),
+                        Driver(),
+                        GopayLater(),
+                      ],
+                    ),
                   ),
                 ),
-              ),
-              const Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding:
-                        EdgeInsets.symmetric(horizontal: 16.0, vertical: 20.0),
-                    child: Search(),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(top: 40.0),
-                    child: Pay(),
-                  ),
-                ],
-              ),
-            ],
-          ),
-
-          // Konten yang bisa di-scroll
-          const Expanded(
-            child: SingleChildScrollView(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SizedBox(height: 10.0),
-                  MenuIcon(),
-                  Poin(),
-                  Driver(),
-                  GopayLater(),
-                ],
-              ),
-            ),
-          ),
-        ],
-      )
-      : _widgetOptions[_selectedIndex],
-
-
+              ],
+            )
+          : _widgetOptions[_selectedIndex],
 
       // Bottom Navigation Bar
       bottomNavigationBar: BottomNavBar(
