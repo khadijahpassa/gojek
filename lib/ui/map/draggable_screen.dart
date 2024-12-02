@@ -44,7 +44,7 @@ class BottomSheetDummyUI extends StatelessWidget { //yang berguna untuk menampil
           Row(
             children: [
               // Ikon di sebelah kiri
-              Image.asset("assets/images/Group.png", width: 40,),
+              Image.asset("assets/images/ic_goride.png", width: 40,),
               const SizedBox(width: 20),
               // Kolom untuk teks di sebelah ikon
               const Column(

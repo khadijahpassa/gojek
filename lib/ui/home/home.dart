@@ -7,6 +7,7 @@ import 'package:gojek/ui/home/components/driver.dart';
 import 'package:gojek/ui/home/components/gopay_later.dart';
 import 'package:gojek/ui/home/components/gopay.dart';
 import 'package:gojek/ui/profile/profile_screen.dart';
+import 'package:gojek/ui/settings/settings.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -18,8 +19,9 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   int _selectedIndex = 0;
   final List<Widget> _widgetOptions = [
-    Home(),
-    ProfileScreen()
+    const Home(),
+    const SettingsScreen(), 
+    const ProfileScreen()
   ];
 
   // function untuk aksi tap pada bottom navbar

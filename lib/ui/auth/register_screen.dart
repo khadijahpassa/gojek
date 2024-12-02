@@ -122,7 +122,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     ElevatedButton(
                       onPressed: () {
                         if (_formKey.currentState!.validate()) {
-                          Navigator.pushNamed(context, '/home');
+                          Navigator.pushNamed(context, '/login');
                         }
                       },
                       style: ElevatedButton.styleFrom(

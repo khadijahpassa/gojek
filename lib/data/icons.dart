@@ -1,5 +1,5 @@
 import 'package:gojek/consts.dart';
-import 'package:gojek/model/gojek_icon.dart';
+import 'package:gojek/models/gojek_icon.dart';
 
 List<GojekIcon> gopayIcons = [
   GojekIcon(icon: 'pay', title: 'Bayar'),
@@ -9,13 +9,13 @@ List<GojekIcon> gopayIcons = [
 
 List<GojekIcon> menuIcons = [
   GojekIcon(icon: 'goride', title: 'GoRide', color: secondaryColor),
-  GojekIcon(icon: 'gocar', title: 'GoRide', color: secondaryColor),
-  GojekIcon(icon: 'gofood', title: 'GoRide', color: red),
-  GojekIcon(icon: 'gosend', title: 'GoRide', color: secondaryColor),
-  GojekIcon(icon: 'gomart', title: 'GoRide', color: red),
-  GojekIcon(icon: 'gopulsa', title: 'GoRide', color: blue),
-  GojekIcon(icon: 'goclub', title: 'GoRide', color: purple),
-  GojekIcon(icon: 'other', title: 'GoRide', color: white),
+  GojekIcon(icon: 'gocar', title: 'GoCar', color: secondaryColor),
+  GojekIcon(icon: 'gofood', title: 'GoFood', color: red),
+  GojekIcon(icon: 'gosend', title: 'GoSend', color: secondaryColor),
+  GojekIcon(icon: 'gomart', title: 'GoMart', color: red),
+  GojekIcon(icon: 'gopulsa', title: 'GoPulsa', color: blue),
+  GojekIcon(icon: 'goclub', title: 'GoClub', color: purple),
+  GojekIcon(icon: 'other', title: 'Lainnya', color: white),
 ];
 
 List<GojekIcon> profileIcons = [

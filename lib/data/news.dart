@@ -1,4 +1,4 @@
-import 'package:gojek/model/news.dart';
+import 'package:gojek/models/news.dart';
 
 List<News> news = [
   News('promotion_1.png', 'Makin Seru',

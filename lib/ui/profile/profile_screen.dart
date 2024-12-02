@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gojek/consts.dart';
 import 'package:gojek/data/icons.dart';
-import 'package:gojek/model/gojek_icon.dart';
+import 'package:gojek/models/gojek_icon.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -16,7 +16,7 @@ class ProfileScreen extends StatelessWidget {
         leading: IconButton(
           icon: const Icon(Icons.arrow_back, color: black),
           onPressed: () {
-            Navigator.pop(context);
+          Navigator.pop(context);
           },
         ),
         title: const Text('Profilku', style: TextStyle(color: black, fontWeight: FontWeight.bold)),

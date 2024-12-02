@@ -15,15 +15,15 @@ class BottomNavBar extends StatelessWidget {
           children: [
             Row(
               children: [
-                Image.asset("assets/images/money.png"),
+                Image.asset("assets/images/money.png", width: 20),
                 const SizedBox(width: 10),
                 // Cash Text
                 const Text(
                   "Cash",
                   style: TextStyle(
-                    color: Color(0xFF2F2828),
+                    color: black,
                     fontSize: 18,
-                    fontFamily: 'Rubik',
+                    
                     fontWeight: FontWeight.w500,
                     height: 0,
                   ),
@@ -43,7 +43,7 @@ class BottomNavBar extends StatelessWidget {
                     ),
                     shadows: const [
                       BoxShadow( 
-                        color: Color(0x26000000),
+                        color: Color(0x2C1C1C1C),
                         blurRadius: 8,
                         offset: Offset(4, 4),
                         spreadRadius: 0,
@@ -55,9 +55,9 @@ class BottomNavBar extends StatelessWidget {
                       "Voucher",
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                        color: Colors.black,
+                        color: black,
                         fontSize: 16,
-                        fontFamily: 'Rubik',
+                        
                         fontWeight: FontWeight.w500,
                         height: 0,
                       ),
@@ -70,13 +70,13 @@ class BottomNavBar extends StatelessWidget {
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     border: Border.all(
-                      color: Colors.grey,
+                      color: lightGrey,
                       width: 2,
                     ),
                   ),
                   child: const Icon(
                     Icons.library_add_sharp,
-                    color: Colors.black,
+                    color: black,
                     size: 23,
                   ),
                 ),
@@ -100,7 +100,7 @@ class BottomNavBar extends StatelessWidget {
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 13,
-                      fontFamily: 'Rubik',
+                      
                       fontWeight: FontWeight.w500,
                       height: 0,
                     ),
@@ -110,7 +110,7 @@ class BottomNavBar extends StatelessWidget {
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 13,
-                      fontFamily: 'Rubik',
+                      
                       fontWeight: FontWeight.w500,
                       height: 0,
                     ),
@@ -134,7 +134,7 @@ class BottomNavBar extends StatelessWidget {
                   ),
                   child: const Icon(
                     Icons.date_range_rounded,
-                    color: Colors.green,
+                    color: secondaryColor,
                     size: 45,
                   ),
                 ),
@@ -149,7 +149,7 @@ class BottomNavBar extends StatelessWidget {
                     ),
                     shadows: const [
                       BoxShadow(
-                        color: Color(0x26000000),
+                        color: Color(0x1D1C1C1C),
                         blurRadius: 8,
                         offset: Offset(4, 4),
                         spreadRadius: 0,
@@ -171,16 +171,16 @@ class BottomNavBar extends StatelessWidget {
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 16,
-                                fontFamily: 'Rubik',
+                                
                                 fontWeight: FontWeight.w500,
                               ),
                             ),
                             Text(
-                              "You’ll earn 4 XP", 
+                              "You'll earn 4 XP", 
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 14,
-                                fontFamily: 'Rubik',
+                                
                                 fontWeight: FontWeight.w400,
                                 letterSpacing: 1,
                               ),
@@ -198,7 +198,7 @@ class BottomNavBar extends StatelessWidget {
                                   style: TextStyle(
                                     color: Colors.white,
                                     fontSize: 15,
-                                    fontFamily: 'Rubik',
+                                    
                                     fontWeight: FontWeight.w600,
                                     height: 0,
                                   ),
