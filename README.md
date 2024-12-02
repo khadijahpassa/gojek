@@ -20,6 +20,8 @@ This app is an implementation of the Gojek app design using Flutter. Key feature
 - flutter_map: For interactive maps.
 - latlong2: For geographic coordinates.
 
+![Mockup Slicing Gojek](<Mockup_Slicing_Gojek.png>)
+
 ## Authors
 
 - [@Nisa](https://github.com/Khairunnyisa) 
