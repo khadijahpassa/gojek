@@ -11,16 +11,13 @@ class ProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 0,
+        title: const Text('Profile'),
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: black),
+          icon: const Icon(Icons.arrow_back),
           onPressed: () {
-          Navigator.pop(context);
+            Navigator.pushNamed(context, '/home');
           },
         ),
-        title: const Text('Profilku', style: TextStyle(color: black, fontWeight: FontWeight.bold)),
-        centerTitle: false,
       ),
       body: ListView(
         children: [
@@ -43,13 +40,13 @@ class ProfileScreen extends StatelessWidget {
                     SizedBox(height: 4),
                     Text('khadijah@gmail.com',
                         style: TextStyle(color: lightGrey)),
-                    Text('+621555333000',
-                        style: TextStyle(color: lightGrey)),
+                    Text('+621555333000', style: TextStyle(color: lightGrey)),
                   ],
                 ),
                 const Spacer(),
                 IconButton(
-                  icon: SvgPicture.asset('assets/icons/profile_edit.svg', color: black),
+                  icon: SvgPicture.asset('assets/icons/profile_edit.svg',
+                      color: black),
                   onPressed: () {},
                 ),
               ],

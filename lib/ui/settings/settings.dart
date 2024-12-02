@@ -123,7 +123,7 @@ class SettingsScreen extends StatelessWidget {
               title: const Text("Logout"),
               trailing: const Icon(Icons.arrow_forward_ios_rounded),
               onTap: () {
-                Navigator.pushNamed(context, '/home');
+                Navigator.pushNamed(context, '/login');
               },
             ),
           ],

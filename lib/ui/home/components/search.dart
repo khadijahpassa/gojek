@@ -55,8 +55,8 @@ class Search extends StatelessWidget {
             child: Stack(
               children: [
                 GestureDetector(
-                  onTap: (){
-                   Navigator.pushNamed(context, '/profile');
+                  onTap: () {
+                    Navigator.pushNamed(context, '/profile');
                   },
                   child: Container(
                     decoration: BoxDecoration(
@@ -91,8 +91,9 @@ class Search extends StatelessWidget {
 }
 
 class CustomSearchDelegate extends SearchDelegate {
-  List<String> searchTerms = ['Sport', 'Female', 'Male'];
+  List<String> searchTerms = ['Roti Bakar', 'Nasi Padang', 'Croissant'];
 
+  List<String> recentSearches = [];
   @override
   List<Widget> buildActions(BuildContext context) {
     return [

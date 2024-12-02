@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:gojek/consts.dart';
 
@@ -23,15 +22,14 @@ class BottomNavBar extends StatelessWidget {
                   style: TextStyle(
                     color: black,
                     fontSize: 18,
-                    
                     fontWeight: FontWeight.w500,
                     height: 0,
                   ),
                 ),
                 const Icon(Icons.arrow_forward_ios_outlined, size: 20),
-      
+
                 const Spacer(),
-                
+
                 Container(
                   width: 100,
                   height: 36,
@@ -42,7 +40,7 @@ class BottomNavBar extends StatelessWidget {
                       borderRadius: BorderRadius.circular(40),
                     ),
                     shadows: const [
-                      BoxShadow( 
+                      BoxShadow(
                         color: Color(0x2C1C1C1C),
                         blurRadius: 8,
                         offset: Offset(4, 4),
@@ -57,7 +55,6 @@ class BottomNavBar extends StatelessWidget {
                       style: TextStyle(
                         color: black,
                         fontSize: 16,
-                        
                         fontWeight: FontWeight.w500,
                         height: 0,
                       ),
@@ -82,9 +79,7 @@ class BottomNavBar extends StatelessWidget {
                 ),
               ],
             ),
-      
             SizedBox(height: 4),
-      
             Container(
               margin: const EdgeInsets.only(top: defaultPadding),
               padding: const EdgeInsets.symmetric(vertical: 13, horizontal: 13),
@@ -100,17 +95,15 @@ class BottomNavBar extends StatelessWidget {
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 13,
-                      
                       fontWeight: FontWeight.w500,
                       height: 0,
                     ),
                   ),
                   Text(
-                    "Try", 
+                    "Try",
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 13,
-                      
                       fontWeight: FontWeight.w500,
                       height: 0,
                     ),
@@ -119,7 +112,6 @@ class BottomNavBar extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 23),
-      
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -139,9 +131,9 @@ class BottomNavBar extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  width: 250,
+                  width: 270,
                   height: 67,
-                  padding: const EdgeInsets.symmetric(vertical: 3),
+                  padding: const EdgeInsets.symmetric(horizontal: 5),
                   decoration: ShapeDecoration(
                     color: primaryColor,
                     shape: RoundedRectangleBorder(
@@ -156,71 +148,71 @@ class BottomNavBar extends StatelessWidget {
                       ),
                     ],
                   ),
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        const Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            SizedBox(height: 10),
-                            Text(
-                              "Order GoRide",
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 16,
-                                
-                                fontWeight: FontWeight.w500,
-                              ),
-                            ),
-                            Text(
-                              "You'll earn 4 XP", 
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 14,
-                                
-                                fontWeight: FontWeight.w400,
-                                letterSpacing: 1,
-                              ),
-                            ),
-                          ],
-                        ),
-      
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.center, 
-                          children: [
-                            Row(
-                              children: [
-                                const Text(
-                                  "12.000", // Price text
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 15,
-                                    
-                                    fontWeight: FontWeight.w600,
-                                    height: 0,
-                                  ),
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.pushNamed(context, "/pay");
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 10),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          const Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              SizedBox(height: 10),
+                              Text(
+                                "Order GoRide",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w500,
                                 ),
-                                const SizedBox(width: 5),
-                                 Container(
-                                  decoration: const BoxDecoration(
-                                    color: Colors.white,
-                                    shape: BoxShape.circle,
-                                  ),
-                                  child: const Icon(
-                                    Icons.arrow_forward,
-                                    color: primaryColor,
-                                    size: 20,
-                                  ),
+                              ),
+                              Text(
+                                "You'll earn 4 XP",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w400,
+                                  letterSpacing: 1,
                                 ),
-                              ],
-                            ),
-                            
-                          ],
-                        ),
-                      ],
+                              ),
+                            ],
+                          ),
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Row(
+                                children: [
+                                  const Text(
+                                    "12.000", // Price text
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.w600,
+                                      height: 0,
+                                    ),
+                                  ),
+                                  const SizedBox(width: 5),
+                                  Container(
+                                    decoration: const BoxDecoration(
+                                      color: Colors.white,
+                                      shape: BoxShape.circle,
+                                    ),
+                                    child: const Icon(
+                                      Icons.arrow_forward,
+                                      color: primaryColor,
+                                      size: 20,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 )

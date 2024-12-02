@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gojek/consts.dart';
+import 'package:gojek/state-management/theme_provider.dart';
+import 'package:provider/provider.dart';
 
 class BottomNavBar extends StatelessWidget {
   final int selectedIndex;
@@ -12,6 +14,7 @@ class BottomNavBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final themeProvider = Provider.of<ThemeProvider>(context);
     return BottomNavigationBar(
       items: const <BottomNavigationBarItem>[
         BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
@@ -22,7 +25,9 @@ class BottomNavBar extends StatelessWidget {
       currentIndex: selectedIndex,
       selectedItemColor: primaryColor,
       unselectedItemColor: lightGrey, // Warna untuk item yang tidak dipilih
-      backgroundColor: Colors.white, // Warna latar belakang navbar
+      backgroundColor: themeProvider.isDarkTheme
+          ? black
+          : white, // Warna latar belakang navbar
       type: BottomNavigationBarType.fixed, // Pastikan ukuran item tetap
       onTap: onItemTapped,
     );

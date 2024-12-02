@@ -4,10 +4,10 @@ import 'package:gojek/state-management/theme_provider.dart';
 import 'package:gojek/ui/home/home.dart';
 import 'package:gojek/ui/auth/login_screen.dart';
 import 'package:gojek/ui/auth/register_screen.dart';
+import 'package:gojek/ui/payment/pay_screen.dart';
 import 'package:gojek/ui/profile/profile_screen.dart';
 import 'package:gojek/ui/splash/splash_screen.dart';
 import 'package:provider/provider.dart';
-
 
 void main() {
   runApp(
@@ -45,6 +45,7 @@ class Gojek extends StatelessWidget {
         '/login': (context) => const LoginScreen(),
         '/register': (context) => const RegisterScreen(),
         '/profile': (context) => const ProfileScreen(),
+        '/pay': (context) => const PayScreen()
       },
     );
   }

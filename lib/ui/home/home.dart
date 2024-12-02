@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gojek/consts.dart';
 import 'package:gojek/state-management/theme_provider.dart';
 import 'package:gojek/ui/home/components/bottom_nav.dart';
 import 'package:gojek/ui/home/components/search.dart';
@@ -41,9 +42,8 @@ class _HomeState extends State<Home> {
     final themeProvider = Provider.of<ThemeProvider>(context);
 
     // Ambil warna teks yang sesuai dengan mode tema
-    final textColor = themeProvider.isDarkTheme ? Colors.white : Colors.black;
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: themeProvider.isDarkTheme ? Colors.black : Colors.white,
       body: _selectedIndex == 0
           ? Column(
               children: [

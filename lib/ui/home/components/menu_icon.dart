@@ -4,7 +4,7 @@ import 'package:gojek/consts.dart';
 import 'package:gojek/data/icons.dart';
 import 'package:gojek/state-management/theme_provider.dart';
 import 'package:gojek/ui/map/order_screen.dart';
-import 'package:provider/provider.dart'; // Tambahkan impor untuk layar tujuan
+import 'package:provider/provider.dart';
 
 class MenuIcon extends StatelessWidget {
   const MenuIcon({super.key});
@@ -12,8 +12,6 @@ class MenuIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final themeProvider = Provider.of<ThemeProvider>(context);
-
-    // Ambil warna teks sesuai tema
     final textColor = themeProvider.isDarkTheme ? Colors.white : Colors.black;
 
     return Padding(
@@ -24,32 +22,42 @@ class MenuIcon extends StatelessWidget {
           crossAxisCount: 4,
           mainAxisSpacing: 8,
           children: [
-            ...menuIcons.map((icon) => Column(
-                  children: [
-                    Container(
-                      width: 40,
-                      height: 40,
-                      decoration: BoxDecoration(
-                        color:
-                            icon.icon == 'goclub' ? Colors.white : icon.color,
-                        borderRadius: BorderRadius.circular(20),
+            ...menuIcons.map((icon) => GestureDetector(
+                  onTap: () {
+                    if (icon.icon == 'goride') {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => OrderScreen()),
+                      );
+                    }
+                  },
+                  child: Column(
+                    children: [
+                      Container(
+                        width: 40,
+                        height: 40,
+                        decoration: BoxDecoration(
+                          color:
+                              icon.icon == 'goclub' ? Colors.white : icon.color,
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        child: SvgPicture.asset(
+                          'assets/icons/${icon.icon}.svg',
+                          color: icon.icon == 'goclub'
+                              ? icon.color
+                              : icon.icon == 'other'
+                                  ? darkGrey
+                                  : Colors.white,
+                          width: 24,
+                        ),
                       ),
-                      child: SvgPicture.asset(
-                        'assets/icons/${icon.icon}.svg',
-                        color: icon.icon == 'goclub'
-                            ? icon.color
-                            : icon.icon == 'other'
-                                ? darkGrey
-                                : Colors.white,
-                        width: 24,
+                      const SizedBox(height: 9),
+                      Text(
+                        icon.title,
+                        style: regular12_5.copyWith(color: textColor),
                       ),
-                    ),
-                    const SizedBox(height: 9),
-                    Text(
-                      icon.title,
-                      style: regular12_5.copyWith(color: textColor),
-                    ),
-                  ],
+                    ],
+                  ),
                 ))
           ],
         ),
