@@ -1,16 +1,28 @@
-# gojek
 
-A new Flutter project.
+# Gojek Slicing App 🔥💻
 
-## Getting Started
+This app is an implementation of the Gojek app design using Flutter. Key features include the splash screen, onboarding, home, order, settings, and profile screens. State management is implemented using Provider.
 
-This project is a starting point for a Flutter application.
+## Features
 
-A few resources to get you started if this is your first Flutter project:
+- Splash Screen
+- Onboarding Screen
+- Home Screen
+- Order Screen
+- Settings Screen
+- Profile Screen
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Dependencies
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- flutter: SDK for building the application.
+- provider: Library for state management.
+- shared_preferences: For local data storage.
+- flutter_map: For interactive maps.
+- latlong2: For geographic coordinates.
+
+## Authors
+
+- [@Nisa](https://github.com/Khairunnyisa) 
+- [@Kanaya](https://github.com/nayaaasss)
+- [@Odit](https://github.com/khadijahpassa)
+

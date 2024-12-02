@@ -44,14 +44,15 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       ),
                     ),
                     TextFormField(
+                      cursorColor: black,
                       controller: _fullNameController,
                       decoration: InputDecoration(
                         labelText: 'Full Name*',
                         border: OutlineInputBorder(borderRadius: BorderRadius.circular(16.0)),
-                        floatingLabelStyle: TextStyle(color: primaryColor),
+                        floatingLabelStyle: const TextStyle(color: primaryColor),
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(16.0),
-                          borderSide: BorderSide(color: primaryColor, width: 2),
+                          borderSide: const BorderSide(color: primaryColor, width: 2),
                         ),
                       ),
                       validator: (value) {
@@ -63,14 +64,15 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     ),
                     const SizedBox(height: 16),
                     TextFormField(
+                      cursorColor: black,
                       controller: _emailController,
                       decoration: InputDecoration(
                         labelText: 'Email Address*',
                         border: OutlineInputBorder(borderRadius: BorderRadius.circular(16.0)),
-                        floatingLabelStyle: TextStyle(color: primaryColor),
+                        floatingLabelStyle: const TextStyle(color: primaryColor),
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(16.0),
-                          borderSide: BorderSide(color: primaryColor, width: 2),
+                          borderSide: const BorderSide(color: primaryColor, width: 2),
                         ),
                       ),
                       validator: (value) {
@@ -91,10 +93,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       decoration: InputDecoration(
                         labelText: 'Password*',
                         border: OutlineInputBorder(borderRadius: BorderRadius.circular(16.0)),
-                        floatingLabelStyle: TextStyle(color: primaryColor),
+                        floatingLabelStyle: const TextStyle(color: primaryColor),
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(16.0),
-                          borderSide: BorderSide(color: primaryColor, width: 2),
+                          borderSide: const BorderSide(color: primaryColor, width: 2),
                         ),
                         suffixIcon: IconButton(
                           color: lightGrey,
@@ -132,7 +134,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           borderRadius: BorderRadius.circular(20.0),
                         ),
                       ),
-                      child: Text(
+                      child: const Text(
                         'Sign Up',
                         style: TextStyle(fontSize: 16, color: Colors.white),
                       ),
@@ -145,7 +147,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         onPressed: () { 
                           Navigator.pushNamed(context, '/login');
                         }, 
-                        child: Text('Sign In to My Account', style: TextStyle(fontSize: 16)),
+                        child: const Text('Sign In to My Account', style: TextStyle(fontSize: 16)),
                       ),
                     
                   ],

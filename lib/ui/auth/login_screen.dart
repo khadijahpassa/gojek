@@ -47,10 +47,10 @@ class _LoginScreenState extends State<LoginScreen> {
                       decoration: InputDecoration(
                         labelText: 'Email Address*',
                         border: OutlineInputBorder(borderRadius: BorderRadius.circular(16.0)),
-                        floatingLabelStyle: TextStyle(color: primaryColor),
+                        floatingLabelStyle: const TextStyle(color: primaryColor),
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(16.0),
-                          borderSide: BorderSide(color: primaryColor, width: 2),
+                          borderSide: const BorderSide(color: primaryColor, width: 2),
                         ),
                       ),
                       validator: (value) {
@@ -71,10 +71,10 @@ class _LoginScreenState extends State<LoginScreen> {
                       decoration: InputDecoration(
                         labelText: 'Password*',
                         border: OutlineInputBorder(borderRadius: BorderRadius.circular(16.0)),
-                        floatingLabelStyle: TextStyle(color: primaryColor),
+                        floatingLabelStyle: const TextStyle(color: primaryColor),
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(16.0),
-                          borderSide: BorderSide(color: primaryColor, width: 2),
+                          borderSide: const BorderSide(color: primaryColor, width: 2),
                         ),
                         suffixIcon: IconButton(
                           color: lightGrey,
@@ -112,7 +112,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           borderRadius: BorderRadius.circular(20.0),
                         ),
                       ),
-                      child: Text(
+                      child: const Text(
                         'Sign In',
                         style: TextStyle(fontSize: 16, color: Colors.white),
                       ),
@@ -123,7 +123,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           foregroundColor: lightGrey,
                         ),
                         onPressed: () {Navigator.pushNamed(context, '/register');}, 
-                        child: Text('Create New Account', style: TextStyle(fontSize: 16)),
+                        child: const Text('Create New Account', style: TextStyle(fontSize: 16)),
                       ),
                     
                   ],

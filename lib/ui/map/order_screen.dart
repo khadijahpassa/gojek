@@ -60,7 +60,7 @@ class OrderScreen extends StatelessWidget {
               ],
             ),
             Positioned(
-              top: 20,
+              top: 50,
               left: 16,
               right: 16,
               child: Container(

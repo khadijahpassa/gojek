@@ -3,12 +3,16 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gojek/consts.dart';
 import 'package:gojek/data/icons.dart';
 import 'package:gojek/models/gojek_icon.dart';
+import 'package:gojek/state-management/theme_provider.dart';
+import 'package:provider/provider.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final themeProvider = Provider.of<ThemeProvider>(context);
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Profile'),
@@ -46,26 +50,27 @@ class ProfileScreen extends StatelessWidget {
                 const Spacer(),
                 IconButton(
                   icon: SvgPicture.asset('assets/icons/profile_edit.svg',
-                      color: black),
+                      color: themeProvider.isDarkTheme ? black : Colors.white,),
                   onPressed: () {},
                 ),
               ],
             ),
           ),
           const Divider(),
-          ...profileIcons.map((icon) => _buildListTile(icon)).toList(),
+          ...profileIcons.map((icon) => _buildListTile(context, icon)).toList(),
         ],
       ),
     );
   }
 
-  Widget _buildListTile(GojekIcon icon) {
+  Widget _buildListTile(BuildContext context, GojekIcon icon) {
+    final themeProvider = Provider.of<ThemeProvider>(context);
     return ListTile(
       leading: SvgPicture.asset(
         'assets/icons/${icon.icon}.svg',
         width: 24,
         height: 24,
-        color: darkGrey,
+        color: themeProvider.isDarkTheme ? white : darkGrey,
       ),
       title: Text(icon.title, style: TextStyle(fontWeight: FontWeight.bold)),
       subtitle: icon.subtitle != null ? Text(icon.subtitle!) : null,

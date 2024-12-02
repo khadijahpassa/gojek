@@ -131,7 +131,7 @@ class BottomNavBar extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  width: 270,
+                  width: 250,
                   height: 67,
                   padding: const EdgeInsets.symmetric(horizontal: 5),
                   decoration: ShapeDecoration(

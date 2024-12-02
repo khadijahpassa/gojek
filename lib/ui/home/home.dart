@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:gojek/consts.dart';
 import 'package:gojek/state-management/theme_provider.dart';
 import 'package:gojek/ui/home/components/bottom_nav.dart';
 import 'package:gojek/ui/home/components/search.dart';
