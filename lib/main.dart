@@ -18,13 +18,13 @@ void main() async {
         ChangeNotifierProvider(
             create: (_) => ThemeProvider()), // Provider untuk tema
       ],
-      child: const GojekApp(),
+      child: const Gojek(),
     ),
   );
 }
 
-class GojekApp extends StatelessWidget {
-  const GojekApp({super.key});
+class Gojek extends StatelessWidget {
+  const Gojek({super.key});
 
   @override
   Widget build(BuildContext context) {
