@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gojek/state-management/theme_provider.dart';
+import 'package:gojek/ui/chat/chat.dart';
 import 'package:gojek/ui/home/components/bottom_nav.dart';
 import 'package:gojek/ui/home/components/search.dart';
 import 'package:gojek/ui/home/components/menu_icon.dart';
@@ -23,7 +24,7 @@ class _HomeState extends State<Home> {
   final List<Widget> _widgetOptions = [
     const Home(),
     const SettingsScreen(),
-    const SettingsScreen(),
+    const Chat(),
     const ProfileScreen()
   ];
 
