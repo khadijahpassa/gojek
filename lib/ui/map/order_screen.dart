@@ -1,15 +1,21 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:gojek/consts.dart';
+import 'package:gojek/state-management/theme_provider.dart';
 import 'package:gojek/ui/map/bottom_nav_bar.dart';
 import 'package:gojek/ui/map/draggable_screen.dart';
 import 'package:latlong2/latlong.dart';
+import 'package:provider/provider.dart';
 
 class OrderScreen extends StatelessWidget {
   const OrderScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final themeProvider = Provider.of<ThemeProvider>(context);
+
     return Scaffold(
       body: Stack(
         children: [
@@ -33,12 +39,10 @@ class OrderScreen extends StatelessWidget {
                   markers: [
                     Marker(
                       point: const LatLng(-6.486597, 107.044091), 
-                      width: 80.0,
-                      height: 80.0,
-                      builder: (context) => const Icon(
-                        Icons.location_pin,
-                        color: Colors.red,
-                        size: 40,
+                      width: 45.0,
+                      height: 45.0,
+                      builder: (context) => SvgPicture.asset(
+                        'assets/icons/destination.svg',
                       ),
                       )
                   ],
@@ -47,12 +51,10 @@ class OrderScreen extends StatelessWidget {
                   markers: [
                     Marker(
                       point: const LatLng(-6.485108, 107.047101), 
-                      width: 80.0,
-                      height: 80.0,
-                      builder: (context) => const Icon(
-                        Icons.car_crash,
-                        color: Colors.green,
-                        size: 40,
+                      width: 45.0,
+                      height: 45.0,
+                      builder: (context) => SvgPicture.asset(
+                        'assets/icons/pickup.svg',
                       ),
                       )
                   ],
@@ -67,7 +69,7 @@ class OrderScreen extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                 margin: const EdgeInsets.all(0),
                 decoration: BoxDecoration(
-                  color: Colors.white,
+                  color: themeProvider.isDarkTheme ? black : Colors.white,
                   borderRadius: BorderRadius.circular(16),
                   boxShadow: [
                     BoxShadow(
@@ -77,34 +79,41 @@ class OrderScreen extends StatelessWidget {
                     )
                   ]
                 ),
-                child: const Column(
+                child: Column(
                   mainAxisSize: MainAxisSize.min,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Row(
                       children: [
-                        Icon(Icons.arrow_circle_up, color: Colors.green,),
-                        SizedBox(width: 8,),
+                        SvgPicture.asset(
+                          'assets/icons/pickup_icon.svg',
+                          width: 22
+                        ),
+
+                        // SvgPicture.asset('assets/icons/pickup_icon.svg', color : themeProvider.isDarkTheme ? lightBlue : primaryColor),
+                        const SizedBox(width: 8),
                         Expanded(
                           child: TextField(
                             decoration: InputDecoration(
                               hintText: 'Mall Living World Cibubur',
+                              hintStyle: TextStyle(color: themeProvider.isDarkTheme ? white : darkGrey),
                               border: InputBorder.none
                             ),
                           )
                           )
                       ],
                     ),
-                   Divider(height: 1),
+                   const Divider(height: 1),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                      Icon(Icons.circle, color: Colors.orange),
-                      SizedBox(width: 8,),
+                      SvgPicture.asset('assets/icons/destination_icon.svg', width: 22),
+                      const SizedBox(width: 8),
                        Expanded(
                           child: TextField(
                             decoration: InputDecoration(
                               hintText: 'SMK IDN Boarding School',
+                              hintStyle: TextStyle(color: themeProvider.isDarkTheme ? white : darkGrey),
                               border: InputBorder.none
                             ),
                           )

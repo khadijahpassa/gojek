@@ -1,6 +1,7 @@
-
 import 'package:flutter/material.dart';
 import 'package:gojek/consts.dart';
+import 'package:gojek/state-management/theme_provider.dart';
+import 'package:provider/provider.dart';
 
 
 class DraggableScreen extends StatelessWidget {
@@ -28,7 +29,6 @@ class DraggableScreen extends StatelessWidget {
           ),
         ],
       );
-  
   }
 }
 
@@ -37,6 +37,8 @@ class BottomSheetDummyUI extends StatelessWidget { //yang berguna untuk menampil
 
   @override
   Widget build(BuildContext context) {
+  final themeProvider = Provider.of<ThemeProvider>(context);
+  
   return Container(
       padding: const EdgeInsets.only(left: defaultPadding),
       child: Column(
@@ -44,58 +46,53 @@ class BottomSheetDummyUI extends StatelessWidget { //yang berguna untuk menampil
           Row(
             children: [
               // Ikon di sebelah kiri
-              Image.asset("assets/images/ic_goride.png", width: 40,),
+              Image.asset("assets/images/ic_goride.png", width: 40),
               const SizedBox(width: 20),
               // Kolom untuk teks di sebelah ikon
-              const Column(
+              Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     'GoRide',  // Ganti dengan teks sesuai kebutuhan
                     style: TextStyle(
-                    color: Color(0xFF2F2828),
+                    color: themeProvider.isDarkTheme ? white : darkGrey,
                     fontSize: 20,
-                    fontFamily: 'Rubik',
                     fontWeight: FontWeight.w700,
-                    height: 0,
                     ),
                   ),
-                  SizedBox(height: 5),
+                  const SizedBox(height: 5),
                   Row(
                     children: [
                       Text(
                        '7-10 mins • ',
                         style: TextStyle(
-                        color: Color(0xFF646262),
+                        color: themeProvider.isDarkTheme ? white : darkGrey,
                         fontSize: 16,
-                        fontFamily: 'Rubik',
                         fontWeight: FontWeight.w400,
                         height: 0,
                         ),
                       ),
-                       Icon(Icons.person, color: Colors.grey,)
+                       const Icon(Icons.person, color: Colors.grey,)
                     ],
                   ),
                 ],
               ),
               // Teks harga di pojok kanan
               const Spacer(),
-              const Padding(
-                padding: EdgeInsets.all(defaultPadding),
+              Padding(
+                padding: const EdgeInsets.all(defaultPadding),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
                     Text(
                       'Rp 200,000',  // Harga
                       style: TextStyle(
-                      color: Color(0xFF2F2828),
+                      color: themeProvider.isDarkTheme ? white : darkGrey,
                       fontSize: 17,
-                      fontFamily: 'Rubik',
                       fontWeight: FontWeight.w500,
-                      height: 0,
                       ),
                     ),
-                    SizedBox(height: 5),
+                    const SizedBox(height: 5),
                   ],
                 ),
               ),
@@ -162,6 +159,8 @@ class _MyDraggableSheetState extends State<MyDraggableSheet> {
 
   @override
   Widget build(BuildContext context) {
+    final themeProvider = Provider.of<ThemeProvider>(context);
+
     return LayoutBuilder(builder: (context, constraints) {
       return DraggableScrollableSheet(
         key: sheet, //kunci ini untuk mengidentifikasi widget sheet
@@ -177,17 +176,17 @@ class _MyDraggableSheetState extends State<MyDraggableSheet> {
         controller: controller,
         builder: (BuildContext context, ScrollController scrollController) {
           return DecoratedBox(
-            decoration: const BoxDecoration(
-              color: Colors.white,
+            decoration: BoxDecoration(
+              color: themeProvider.isDarkTheme ? black : Colors.white,
               boxShadow: [
-                BoxShadow(
+                const BoxShadow(
                   color: Colors.grey,
                   blurRadius: 9,
                   spreadRadius: 1,
                   offset: Offset(0, 1),
                 ),
               ],
-              borderRadius: BorderRadius.only(
+              borderRadius: const BorderRadius.only(
                 topLeft: Radius.circular(22),
                 topRight: Radius.circular(22),
               ),
@@ -208,6 +207,7 @@ class _MyDraggableSheetState extends State<MyDraggableSheet> {
   }
 
   SliverToBoxAdapter topButtonIndicator() {
+    final themeProvider = Provider.of<ThemeProvider>(context);
     return SliverToBoxAdapter(
       child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -219,10 +219,10 @@ class _MyDraggableSheetState extends State<MyDraggableSheet> {
                       width: 100,
                       margin: const EdgeInsets.only(top: 14, bottom: 29),
                       height: 5,
-                      decoration: const BoxDecoration(
-                        color: Colors.black45,
+                      decoration: BoxDecoration(
+                        color: themeProvider.isDarkTheme ? white.withOpacity(0.5) : darkGrey,
                         shape: BoxShape.rectangle,
-                        borderRadius: BorderRadius.all(Radius.circular(8.0)),
+                        borderRadius: const BorderRadius.all(Radius.circular(8.0)),
                       )),
                 ])),
           ]),

@@ -1,6 +1,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:gojek/consts.dart';
+import 'package:gojek/state-management/theme_provider.dart';
+import 'package:provider/provider.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -18,6 +20,8 @@ class _LoginScreenState extends State<LoginScreen> {
   
   @override
   Widget build(BuildContext context) {
+    final themeProvider = Provider.of<ThemeProvider>(context);
+
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -34,7 +38,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     const Padding(
                       padding:  EdgeInsets.symmetric(vertical: defaultPadding),
                       child:  Text(
-                        'Sign In',
+                        'Masuk',
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 26,
@@ -43,38 +47,39 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                     ),
                     TextFormField(
+                      cursorColor: themeProvider.isDarkTheme ? white : black,
                       controller: _emailController,
                       decoration: InputDecoration(
-                        labelText: 'Email Address*',
+                        labelText: 'Alamat Email*',
                         border: OutlineInputBorder(borderRadius: BorderRadius.circular(16.0)),
-                        floatingLabelStyle: const TextStyle(color: primaryColor),
+                        floatingLabelStyle: TextStyle(color: themeProvider.isDarkTheme ? white : primaryColor),
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(16.0),
-                          borderSide: const BorderSide(color: primaryColor, width: 2),
+                          borderSide: BorderSide(color: themeProvider.isDarkTheme ? white : primaryColor, width: 2),
                         ),
                       ),
                       validator: (value) {
                         if (value == null || value.isEmpty) {
-                          return 'Email Address is required';
+                          return 'Alamat email wajib diisi';
                         }
                         if (!value.contains('@')) {
-                          return 'Please enter a valid email address';
+                          return 'Masukkan alamat email yang valid';
                         }
                         return null;
                       },
                     ),
                     const SizedBox(height: 16),
                     TextFormField(
-                      cursorColor: black,
+                      cursorColor: themeProvider.isDarkTheme ? white : black,
                       controller: _passwordController,
                       obscureText: !_isPasswordVisible,
                       decoration: InputDecoration(
-                        labelText: 'Password*',
+                        labelText: 'Kata Sandi*',
                         border: OutlineInputBorder(borderRadius: BorderRadius.circular(16.0)),
-                        floatingLabelStyle: const TextStyle(color: primaryColor),
+                        floatingLabelStyle: TextStyle(color: themeProvider.isDarkTheme ? white : primaryColor),
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(16.0),
-                          borderSide: const BorderSide(color: primaryColor, width: 2),
+                          borderSide: BorderSide(color: themeProvider.isDarkTheme ? white : primaryColor, width: 2),
                         ),
                         suffixIcon: IconButton(
                           color: lightGrey,
@@ -90,10 +95,10 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                       validator: (value) {
                         if (value == null || value.isEmpty) {
-                          return 'Password is required';
+                          return 'Kata sandi wajib diisi';
                         }
                         if (value.length < 8) {
-                          return 'Password must be at least 8 characters long';
+                          return 'Kata sandi harus terdiri dari minimal 8 karakter';
                         }
                         return null;
                       },
@@ -113,7 +118,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                       ),
                       child: const Text(
-                        'Sign In',
+                        'Masuk',
                         style: TextStyle(fontSize: 16, color: Colors.white),
                       ),
                     ),
@@ -123,7 +128,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           foregroundColor: lightGrey,
                         ),
                         onPressed: () {Navigator.pushNamed(context, '/register');}, 
-                        child: const Text('Create New Account', style: TextStyle(fontSize: 16)),
+                        child: const Text('Buat Akun Baru', style: TextStyle(fontSize: 16)),
                       ),
                     
                   ],

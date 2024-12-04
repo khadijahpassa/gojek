@@ -1,6 +1,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:gojek/consts.dart';
+import 'package:gojek/state-management/theme_provider.dart';
+import 'package:provider/provider.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});
@@ -19,6 +21,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
   
   @override
   Widget build(BuildContext context) {
+    final themeProvider = Provider.of<ThemeProvider>(context);
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -44,15 +47,15 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       ),
                     ),
                     TextFormField(
-                      cursorColor: black,
+                      cursorColor: themeProvider.isDarkTheme ? white : black,
                       controller: _fullNameController,
                       decoration: InputDecoration(
                         labelText: 'Full Name*',
                         border: OutlineInputBorder(borderRadius: BorderRadius.circular(16.0)),
-                        floatingLabelStyle: const TextStyle(color: primaryColor),
+                        floatingLabelStyle: TextStyle(color: themeProvider.isDarkTheme ? white : primaryColor),
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(16.0),
-                          borderSide: const BorderSide(color: primaryColor, width: 2),
+                          borderSide: BorderSide(color: themeProvider.isDarkTheme ? white : primaryColor, width: 2),
                         ),
                       ),
                       validator: (value) {
@@ -64,15 +67,15 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     ),
                     const SizedBox(height: 16),
                     TextFormField(
-                      cursorColor: black,
+                      cursorColor: themeProvider.isDarkTheme ? white : black,
                       controller: _emailController,
                       decoration: InputDecoration(
                         labelText: 'Email Address*',
                         border: OutlineInputBorder(borderRadius: BorderRadius.circular(16.0)),
-                        floatingLabelStyle: const TextStyle(color: primaryColor),
+                        floatingLabelStyle: TextStyle(color: themeProvider.isDarkTheme ? white : primaryColor),
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(16.0),
-                          borderSide: const BorderSide(color: primaryColor, width: 2),
+                          borderSide: BorderSide(color: themeProvider.isDarkTheme ? white : primaryColor, width: 2),
                         ),
                       ),
                       validator: (value) {
@@ -87,16 +90,16 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     ),
                     const SizedBox(height: 16),
                     TextFormField(
-                      cursorColor: black,
+                      cursorColor: themeProvider.isDarkTheme ? white : black,
                       controller: _passwordController,
                       obscureText: !_isPasswordVisible,
                       decoration: InputDecoration(
                         labelText: 'Password*',
                         border: OutlineInputBorder(borderRadius: BorderRadius.circular(16.0)),
-                        floatingLabelStyle: const TextStyle(color: primaryColor),
+                        floatingLabelStyle: TextStyle(color: themeProvider.isDarkTheme ? white : primaryColor),
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(16.0),
-                          borderSide: const BorderSide(color: primaryColor, width: 2),
+                          borderSide: BorderSide(color: themeProvider.isDarkTheme ? white : primaryColor, width: 2),
                         ),
                         suffixIcon: IconButton(
                           color: lightGrey,

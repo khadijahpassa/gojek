@@ -15,7 +15,8 @@ class ProfileScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Profile'),
+        title: const Text('Profil'),
+        backgroundColor: themeProvider.isDarkTheme ? black : Colors.white,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           onPressed: () {
@@ -50,7 +51,7 @@ class ProfileScreen extends StatelessWidget {
                 const Spacer(),
                 IconButton(
                   icon: SvgPicture.asset('assets/icons/profile_edit.svg',
-                      color: themeProvider.isDarkTheme ? black : Colors.white,),
+                      color: themeProvider.isDarkTheme ? black : Colors.white),
                   onPressed: () {},
                 ),
               ],
