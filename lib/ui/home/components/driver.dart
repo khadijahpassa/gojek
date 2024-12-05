@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:gojek/consts.dart';
@@ -15,7 +17,7 @@ class Driver extends StatelessWidget {
     final textColor = themeProvider.isDarkTheme ? Colors.white : Colors.black;
 
     return Padding(
-      padding: EdgeInsets.all(defaultPadding),
+      padding: const EdgeInsets.all(defaultPadding),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

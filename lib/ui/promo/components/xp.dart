@@ -6,8 +6,8 @@ import 'package:gojek/consts.dart';
 import 'package:gojek/state-management/theme_provider.dart';
 import 'package:provider/provider.dart';
 
-class Poin extends StatelessWidget {
-  const Poin({super.key});
+class Xp extends StatelessWidget {
+  const Xp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +20,7 @@ class Poin extends StatelessWidget {
             const Color(0xff24324e),
           ]
         : [
-            const Color(0xffeaf3f6),
+            const Color.fromARGB(255, 255, 240, 230),
             Colors.white,
           ];
 
@@ -31,10 +31,10 @@ class Poin extends StatelessWidget {
     final textColor = themeProvider.isDarkTheme ? Colors.white : black;
 
     final progressBgColor =
-        themeProvider.isDarkTheme ? const Color(0xff2b3a52) : lightGrey;
+        themeProvider.isDarkTheme ? const Color(0xFF394861) : lightGrey;
 
     return Padding(
-      padding: const EdgeInsets.only(top: 19, left: 15, right: 15),
+      padding: const EdgeInsets.only(top: 19, left: 2, right: 10),
       child: Container(
         height: 65,
         width: double.infinity,
@@ -55,7 +55,7 @@ class Poin extends StatelessWidget {
               top: 4,
               bottom: 4,
               child: SvgPicture.asset(
-                'assets/images/component_dots.svg',
+                'assets/images/component_dots2.svg',
                 color: themeProvider.isDarkTheme ? Colors.white30 : null,
               ),
             ),
@@ -64,7 +64,7 @@ class Poin extends StatelessWidget {
               child: Row(
                 children: [
                   SvgPicture.asset(
-                    'assets/images/component_star.svg',
+                    'assets/images/component_star2.svg',
                     height: 40,
                     color: themeProvider.isDarkTheme ? Colors.white : null,
                   ),

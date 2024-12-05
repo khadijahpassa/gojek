@@ -85,7 +85,7 @@ class BottomSheetDummyUI extends StatelessWidget { //yang berguna untuk menampil
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
                     Text(
-                      'Rp 200,000',  // Harga
+                      'Rp200.000',  // Harga
                       style: TextStyle(
                       color: themeProvider.isDarkTheme ? white : darkGrey,
                       fontSize: 17,
@@ -178,8 +178,8 @@ class _MyDraggableSheetState extends State<MyDraggableSheet> {
           return DecoratedBox(
             decoration: BoxDecoration(
               color: themeProvider.isDarkTheme ? black : Colors.white,
-              boxShadow: [
-                const BoxShadow(
+              boxShadow: const [
+                BoxShadow(
                   color: Colors.grey,
                   blurRadius: 9,
                   spreadRadius: 1,

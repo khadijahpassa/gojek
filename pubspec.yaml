@@ -43,6 +43,10 @@ dependencies:
 
   flutter_map: ^5.0.0
   latlong2:  ^0.9.1
+  flutter_riverpod: ^2.6.1
+  google_generative_ai: ^0.4.6
+  flutter_dotenv: ^5.2.1
+  
 
 
 dev_dependencies:
@@ -71,6 +75,7 @@ flutter:
   assets:
     - assets/images/
     - assets/icons/
+    - .env
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

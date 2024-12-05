@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gojek/consts.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:gojek/state-management/theme_provider.dart';
 import 'package:gojek/ui/home/home.dart';
 import 'package:gojek/ui/auth/login_screen.dart';
@@ -7,13 +7,16 @@ import 'package:gojek/ui/auth/register_screen.dart';
 import 'package:gojek/ui/payment/pay_screen.dart';
 import 'package:gojek/ui/profile/profile_screen.dart';
 import 'package:gojek/ui/splash/splash_screen.dart';
-import 'package:provider/provider.dart';
+import 'package:provider/provider.dart'; 
 
-void main() {
+void main() async {
+  await dotenv.load(fileName: ".env");
+
   runApp(
     MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (_) => ThemeProvider()),
+        ChangeNotifierProvider(
+            create: (_) => ThemeProvider()), // Provider untuk tema
       ],
       child: const Gojek(),
     ),
@@ -25,27 +28,28 @@ class Gojek extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final themeProvider = Provider.of<ThemeProvider>(context);
+    final themeProvider =
+        Provider.of<ThemeProvider>(context); // Menggunakan provider untuk tema
 
     return MaterialApp(
       debugShowCheckedModeBanner: false, // Menghilangkan banner debug
-      title: 'Gojek',
+      title: 'Chat',
       theme: ThemeData(
         brightness:
             themeProvider.isDarkTheme ? Brightness.dark : Brightness.light,
         scaffoldBackgroundColor:
-            themeProvider.isDarkTheme ? black : Colors.white,
+            themeProvider.isDarkTheme ? Colors.black : Colors.white,
         primarySwatch: Colors.green,
         fontFamily: 'SF-Pro',
       ),
       initialRoute: '/',
       routes: {
         '/': (context) => const SplashScreen(),
-        '/home': (context) => const Home(),
+        '/home': (context) => const HomeScreen(),
         '/login': (context) => const LoginScreen(),
         '/register': (context) => const RegisterScreen(),
         '/profile': (context) => const ProfileScreen(),
-        '/pay': (context) => const PayScreen()
+        '/pay': (context) => const PayScreen(),
       },
     );
   }

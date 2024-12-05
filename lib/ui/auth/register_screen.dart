@@ -38,7 +38,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     const Padding(
                       padding:  EdgeInsets.symmetric(vertical: defaultPadding),
                       child:  Text(
-                        'Sign Up',
+                        'Daftar',
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 26,
@@ -50,7 +50,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       cursorColor: themeProvider.isDarkTheme ? white : black,
                       controller: _fullNameController,
                       decoration: InputDecoration(
-                        labelText: 'Full Name*',
+                        labelText: 'Nama Lengkap*',
                         border: OutlineInputBorder(borderRadius: BorderRadius.circular(16.0)),
                         floatingLabelStyle: TextStyle(color: themeProvider.isDarkTheme ? white : primaryColor),
                         focusedBorder: OutlineInputBorder(
@@ -60,7 +60,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       ),
                       validator: (value) {
                         if (value == null || value.isEmpty) {
-                          return 'Full Name is required';
+                          return 'Nama lengkap wajib diisi';
                         }
                         return null;
                       },
@@ -70,7 +70,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       cursorColor: themeProvider.isDarkTheme ? white : black,
                       controller: _emailController,
                       decoration: InputDecoration(
-                        labelText: 'Email Address*',
+                        labelText: 'Alamat Email*',
                         border: OutlineInputBorder(borderRadius: BorderRadius.circular(16.0)),
                         floatingLabelStyle: TextStyle(color: themeProvider.isDarkTheme ? white : primaryColor),
                         focusedBorder: OutlineInputBorder(
@@ -80,10 +80,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       ),
                       validator: (value) {
                         if (value == null || value.isEmpty) {
-                          return 'Email Address is required';
+                          return 'Alamat email wajib diisi';
                         }
                         if (!value.contains('@')) {
-                          return 'Please enter a valid email address';
+                          return 'Masukkan alamat email yang valid';
                         }
                         return null;
                       },
@@ -94,7 +94,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       controller: _passwordController,
                       obscureText: !_isPasswordVisible,
                       decoration: InputDecoration(
-                        labelText: 'Password*',
+                        labelText: 'Kata Sandi*',
                         border: OutlineInputBorder(borderRadius: BorderRadius.circular(16.0)),
                         floatingLabelStyle: TextStyle(color: themeProvider.isDarkTheme ? white : primaryColor),
                         focusedBorder: OutlineInputBorder(
@@ -115,10 +115,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       ),
                       validator: (value) {
                         if (value == null || value.isEmpty) {
-                          return 'Password is required';
+                          return 'Kata sandi wajib diisi';
                         }
                         if (value.length < 8) {
-                          return 'Password must be at least 8 characters long';
+                          return 'Kata sandi harus terdiri dari minimal 8 karakter';
                         }
                         return null;
                       },
@@ -138,7 +138,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         ),
                       ),
                       child: const Text(
-                        'Sign Up',
+                        'Daftar',
                         style: TextStyle(fontSize: 16, color: Colors.white),
                       ),
                     ),
@@ -150,7 +150,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         onPressed: () { 
                           Navigator.pushNamed(context, '/login');
                         }, 
-                        child: const Text('Sign In to My Account', style: TextStyle(fontSize: 16)),
+                        child: const Text('Masuk ke Akunku', style: TextStyle(fontSize: 16)),
                       ),
                     
                   ],

@@ -18,7 +18,7 @@ class GopayLater extends StatelessWidget {
         : lightGrey; // Warna border sesuai tema
 
     return Padding(
-      padding: EdgeInsets.all(defaultPadding),
+      padding: const EdgeInsets.all(defaultPadding),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start, // Pastikan align ke kiri
         mainAxisSize: MainAxisSize.min, // Agar tinggi hanya mengikuti konten

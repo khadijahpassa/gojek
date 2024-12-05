@@ -15,7 +15,7 @@ class MenuIcon extends StatelessWidget {
     final textColor = themeProvider.isDarkTheme ? Colors.white : Colors.black;
 
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: defaultPadding),
+      padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
       child: SizedBox(
         height: 198,
         child: GridView.count(
@@ -27,7 +27,7 @@ class MenuIcon extends StatelessWidget {
                     if (icon.icon == 'goride') {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => OrderScreen()),
+                        MaterialPageRoute(builder: (context) => const OrderScreen()),
                       );
                     }
                   },
