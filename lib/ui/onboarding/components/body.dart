@@ -2,7 +2,9 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:gojek/consts.dart';
+import 'package:gojek/state-management/theme_provider.dart';
 import 'package:gojek/ui/onboarding/components/onboarding_content.dart';
+import 'package:provider/provider.dart';
 
 class Body extends StatefulWidget {
   const Body({super.key});
@@ -20,19 +22,19 @@ class _BodyState extends State<Body> {
   List<Map<String, String>> onboardingData = [
     {
       "image": "assets/images/splash_1.png",
-      "title": "Welcome to Gojek!",
+      "title": "Halo, selamat datang di Gojek!",
       "subtitle":
-          "Your go-to app for a hassle-free life. We're here to help all your needs, anytime and anywhere",
+          "Aplikasi andalan untuk hidup lebih praktis. Gojek siap bantu kebutuhanmu kapan aja, di mana aja!",
     },
     {
       "image": "assets/images/splash_2.png",
-      "title": "Transport & logistics",
-      "subtitle": "Daily commute and goods delivery made easy.",
+      "title": "Transportasi & Kirim Barang",
+      "subtitle": "Butuh tumpangan atau kirim paket? Semua bisa diatur dengan Gojek!",
     },
     {
       "image": "assets/images/splash_3.png",
-      "title": "Order food & groceries",
-      "subtitle": "Either needs or cravings, we got you covered.",
+      "title": "Pesan Makanan & Belanja",
+      "subtitle": "Lagi laper atau perlu belanja bulanan? Santai, serahin aja ke Gojek!",
     },
   ];
 
@@ -67,6 +69,7 @@ class _BodyState extends State<Body> {
 
   @override
   Widget build(BuildContext context) {
+    final themeProvider = Provider.of<ThemeProvider>(context);
     return Scaffold(
       body: SafeArea(
           child: Padding(
@@ -80,8 +83,8 @@ class _BodyState extends State<Body> {
                 OutlinedButton.icon(
                   onPressed: () {},
                   icon: const Icon(Icons.translate_rounded),
-                  label: const Text("English"),
-                  style: OutlinedButton.styleFrom(foregroundColor: darkGrey),
+                  label: const Text("Indonesia"),
+                  style: OutlinedButton.styleFrom(foregroundColor: themeProvider.isDarkTheme ? white : darkGrey),
                 )
               ],
             ),
@@ -131,7 +134,7 @@ class _BodyState extends State<Body> {
                     borderRadius: BorderRadius.circular(20),
                   )),
               child: const Text(
-                'Login',
+                'Masuk',
                 style: TextStyle(
                     fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white),
               ),
@@ -142,59 +145,59 @@ class _BodyState extends State<Body> {
                 Navigator.pushNamed(context, '/register');
               },
               style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.white,
+                  backgroundColor: themeProvider.isDarkTheme ? black : white,
                   minimumSize: const Size(double.infinity, 42),
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(20),
-                      side: const BorderSide(color: primaryColor))),
-              child: const Text(
-                "I'm new, sign me up",
+                      side: BorderSide(color: themeProvider.isDarkTheme ? white : primaryColor))),
+              child: Text(
+                "Baru di sini? Daftar yuk!",
                 style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
-                    color: primaryColor),
+                    color: themeProvider.isDarkTheme ? white : primaryColor),
               ),
             ),
             const SizedBox(height: 20),
-            const Text.rich(
+            Text.rich(
               TextSpan(
                 children: [
                   TextSpan(
-                    text: 'By logging in or registering, you agree to our ',
+                    text: 'Dengan masuk atau daftar, kamu setuju dengan ',
                     style: TextStyle(
-                      color: black,
+                      color: themeProvider.isDarkTheme ? white : black,
                       fontSize: 14,
                       fontWeight: FontWeight.w300,
                     ),
                   ),
                   TextSpan(
-                    text: 'Terms of Service',
+                    text: 'Syarat & Ketentuan',
                     style: TextStyle(
-                      color: primaryColor,
+                      color: themeProvider.isDarkTheme ? white : primaryColor,
+                      fontSize: 14,
+                      fontWeight: themeProvider.isDarkTheme ? FontWeight.bold : FontWeight.w300,
+                    ),
+                  ),
+                  TextSpan(
+                    text: ' serta ',
+                    style: TextStyle(
+                      color: themeProvider.isDarkTheme ? white : black,
                       fontSize: 14,
                       fontWeight: FontWeight.w300,
                     ),
                   ),
                   TextSpan(
-                    text: ' and ',
+                    text: 'Kebijakan Privasi',
                     style: TextStyle(
-                      color: black,
+                      color: themeProvider.isDarkTheme ? white : primaryColor,
                       fontSize: 14,
-                      fontWeight: FontWeight.w300,
+                      fontWeight: themeProvider.isDarkTheme ? FontWeight.bold : FontWeight.w300,
                     ),
                   ),
                   TextSpan(
-                    text: 'Privacy policy',
+                    text: ' kami.',
                     style: TextStyle(
-                      color: primaryColor,
-                      fontSize: 14,
-                      fontWeight: FontWeight.w300,
-                    ),
-                  ),
-                  TextSpan(
-                    text: '.',
-                    style: TextStyle(
-                      color: black,
+                      color: themeProvider.isDarkTheme ? white : black,
                       fontSize: 14,
                       fontWeight: FontWeight.w300,
                     ),
@@ -209,13 +212,14 @@ class _BodyState extends State<Body> {
   }
 
   AnimatedContainer _dotsIndicator({required int index}) {
+    final themeProvider = Provider.of<ThemeProvider>(context);
     return AnimatedContainer(
       duration: animationDuration,
       margin: const EdgeInsets.only(right: 10),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
         // dots halaman yang aktif, warnanya jadi primary
-        color: currentPage == index ? primaryColor : lightGrey,
+        color: currentPage == index ? primaryColor : themeProvider.isDarkTheme ? const Color(0x6FEDEDED) : lightGrey,
       ),
       width: currentPage == index ? 20 : 10,
       height: 10,

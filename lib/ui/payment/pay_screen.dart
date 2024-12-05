@@ -55,7 +55,7 @@ class _PayScreenState extends State<PayScreen> with TickerProviderStateMixin {
                   child: child,
                 );
               },
-              child: Image.asset("assets/images/lc_pay.png", width: 200),
+              child: Image.asset("assets/images/ic_pay.png", width: 200),
             ),
             const SizedBox(height: 60),
             const Text(

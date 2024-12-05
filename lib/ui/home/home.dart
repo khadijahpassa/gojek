@@ -8,24 +8,24 @@ import 'package:gojek/ui/home/components/poin.dart';
 import 'package:gojek/ui/home/components/driver.dart';
 import 'package:gojek/ui/home/components/gopay_later.dart';
 import 'package:gojek/ui/home/components/gopay.dart';
-import 'package:gojek/ui/profile/profile_screen.dart';
+import 'package:gojek/ui/promo/promo_screen.dart';
 import 'package:gojek/ui/settings/settings.dart';
 import 'package:provider/provider.dart';
 
-class Home extends StatefulWidget {
-  const Home({super.key});
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
 
   @override
-  State<Home> createState() => _HomeState();
+  State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _HomeState extends State<Home> {
+class _HomeScreenState extends State<HomeScreen> {
   int _selectedIndex = 0;
   final List<Widget> _widgetOptions = [
-    const Home(),
-    const SettingsScreen(),
+    const HomeScreen(),
+    const PromoScreen(),
     const Chat(),
-    const ProfileScreen()
+    const SettingsScreen(),
   ];
 
   // function untuk aksi tap pada bottom navbar

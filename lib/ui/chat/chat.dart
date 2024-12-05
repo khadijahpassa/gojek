@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:gojek/consts.dart';
 import 'package:gojek/models/message.dart';
+import 'package:gojek/state-management/theme_provider.dart';
 import 'package:google_generative_ai/google_generative_ai.dart';
+import 'package:provider/provider.dart';
 
 class Chat extends StatefulWidget {
   const Chat({super.key});
@@ -19,7 +22,7 @@ class _ChatState extends State<Chat> {
     Message(text: "Mau jalan jalan dong", isUser: true),
     Message(
         text:
-            "widih, ada yang bisa aku bantu gak buat bikin liburan kamu makin seru!",
+            "Widih, ada yang bisa aku bantu gak buat bikin liburan kamu makin seru!",
         isUser: false),
   ];
 
@@ -61,14 +64,50 @@ class _ChatState extends State<Chat> {
 
   @override
   Widget build(BuildContext context) {
+    final themeProvider = Provider.of<ThemeProvider>(context);
+    final textColor = themeProvider.isDarkTheme ? Colors.white : Colors.black;
+
     return Scaffold(
       appBar: AppBar(
         centerTitle: false,
+        backgroundColor: themeProvider.isDarkTheme ? black : Colors.white,
         elevation: 0,
         title: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text("GoChat"),
-            Spacer(),
+            Text(
+              'GoChat',
+              style: TextStyle(
+                color: textColor,
+                fontSize: 24,
+                fontFamily: 'SF Pro',
+                fontWeight: FontWeight.w700,
+              ),
+            ),
+            const SizedBox(width: 5),
+            Row(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                Text(
+                  "Powered by", 
+                  style: TextStyle(
+                    fontSize: 12,
+                    color: themeProvider.isDarkTheme ? white : black,
+                    height: 0
+                  )
+                ),
+                const SizedBox(width: 4),
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 2),
+                  child: SvgPicture.asset(
+                    'assets/icons/gemini_logo.svg', 
+                    height: 14,
+                  ),
+                ),
+              ],
+            ),
           ],
         ),
       ),
@@ -90,25 +129,25 @@ class _ChatState extends State<Chat> {
                           : Alignment.centerLeft,
                       child: Container(
                         padding:
-                            EdgeInsets.symmetric(vertical: 12, horizontal: 18),
+                            const EdgeInsets.symmetric(vertical: 12, horizontal: 18),
                         decoration: BoxDecoration(
                           color:
-                              message.isUser ? primaryColor : Colors.grey[300],
+                              message.isUser ? primaryColor : themeProvider.isDarkTheme ? darkGrey : Colors.grey[300],
                           borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(12),
-                            topRight: Radius.circular(12),
+                            topLeft: const Radius.circular(12),
+                            topRight: const Radius.circular(12),
                             bottomLeft: message.isUser
-                                ? Radius.circular(12)
-                                : Radius.circular(0),
+                                ? const Radius.circular(12)
+                                : const Radius.circular(0),
                             bottomRight: message.isUser
-                                ? Radius.circular(0)
-                                : Radius.circular(12),
+                                ? const Radius.circular(0)
+                                : const Radius.circular(12),
                           ),
                         ),
                         child: Text(
                           message.text,
                           style: TextStyle(
-                            color: message.isUser ? Colors.white : Colors.black,
+                            color: message.isUser ? Colors.white : themeProvider.isDarkTheme ? Colors.white : Colors.black,
                             fontSize: 16,
                           ),
                         ),
@@ -123,14 +162,14 @@ class _ChatState extends State<Chat> {
                   vertical: 15), // Padding di sekitar input
               child: Container(
                 decoration: BoxDecoration(
-                  color: Colors.white,
+                  color: themeProvider.isDarkTheme ? darkGrey : Colors.white,
                   borderRadius: BorderRadius.circular(32),
                   boxShadow: [
                     BoxShadow(
                       color: Colors.grey.withOpacity(0.2),
                       spreadRadius: 3,
                       blurRadius: 8,
-                      offset: Offset(0, 4),
+                      offset: const Offset(0, 4),
                     ),
                   ],
                 ),
@@ -138,9 +177,10 @@ class _ChatState extends State<Chat> {
                   children: [
                     Expanded(
                       child: TextField(
+                        cursorColor: themeProvider.isDarkTheme ? Colors.white : primaryColor,
                         controller: _controller,
-                        decoration: InputDecoration(
-                          hintText: "Type your message...",
+                        decoration: const InputDecoration(
+                          hintText: "Ketik di sini...",
                           border: InputBorder.none,
                           contentPadding:
                               EdgeInsets.symmetric(horizontal: defaultPadding),
@@ -149,7 +189,7 @@ class _ChatState extends State<Chat> {
                     ),
                     IconButton(
                       onPressed: callGeminiModel,
-                      icon: Icon(Icons.send, size: 28, color: primaryColor),
+                      icon: Icon(Icons.send_rounded, size: 28, color: themeProvider.isDarkTheme ? Colors.white : primaryColor),
                     ),
                   ],
                 ),

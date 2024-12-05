@@ -14,7 +14,16 @@ class SettingsScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Settings'),
+        title: Text(
+          'Settings',
+          style: TextStyle(
+            color: textColor,
+            fontSize: 24,
+            fontFamily: 'SF Pro',
+            fontWeight: FontWeight.w700,
+          ),
+        ),
+        backgroundColor: themeProvider.isDarkTheme ? black : Colors.white,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           onPressed: () {
@@ -41,7 +50,7 @@ class SettingsScreen extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(defaultPadding),
               child: Text(
-                "Account",
+                "Akun",
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.w600,
@@ -51,7 +60,7 @@ class SettingsScreen extends StatelessWidget {
             ),
             const ListTile(
               leading: Icon(Icons.notifications),
-              title: Text("Notification Setting"),
+              title: Text("Pengaturan Notifikasi"),
               trailing: Icon(Icons.arrow_forward_ios_rounded),
             ),
             Container(
@@ -60,7 +69,7 @@ class SettingsScreen extends StatelessWidget {
             ),
             const ListTile(
               leading: Icon(Icons.local_shipping),
-              title: Text("Shipping Address"),
+              title: Text("Alamat Pengiriman"),
               trailing: Icon(Icons.arrow_forward_ios_rounded),
             ),
             Container(
@@ -69,7 +78,7 @@ class SettingsScreen extends StatelessWidget {
             ),
             const ListTile(
               leading: Icon(Icons.account_balance_wallet),
-              title: Text("Payment Info"),
+              title: Text("Informasi Pembayaran"),
               trailing: Icon(Icons.arrow_forward_ios_rounded),
             ),
             Container(
@@ -78,13 +87,13 @@ class SettingsScreen extends StatelessWidget {
             ),
             const ListTile(
               leading: Icon(Icons.delete),
-              title: Text("Delete Account"),
+              title: Text("Hapus Akun"),
               trailing: Icon(Icons.arrow_forward_ios_rounded),
             ),
             Padding(
               padding: const EdgeInsets.all(defaultPadding),
               child: Text(
-                "App Settings",
+                "Pengaturan Aplikasi",
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.w600,
@@ -92,22 +101,13 @@ class SettingsScreen extends StatelessWidget {
                 ),
               ),
             ),
-            const ListTile(
-              title: Text("Enable Face ID For Log In"),
-              trailing: Icon(Icons.arrow_forward_ios_rounded),
-            ),
-            const ListTile(
-              title: Text("Enable Push Notifications"),
-              trailing: Icon(Icons.arrow_forward_ios_rounded),
-            ),
-            const ListTile(
-              title: Text("Enable Location Service"),
-              trailing: Icon(Icons.arrow_forward_ios_rounded),
-            ),
+            const AppSet(text: "Aktifkan Face ID untuk Log In"),
+            const AppSet(text: "Aktifkan Notifikasi Push"),
+            const AppSet(text: "Aktifkan Layanan Lokasi"),
             Padding(
               padding: const EdgeInsets.all(defaultPadding),
               child: Text(
-                "Account Management",
+                "Manajemen Akun",
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.w600,
@@ -120,7 +120,7 @@ class SettingsScreen extends StatelessWidget {
                 Icons.exit_to_app,
                 color: Colors.red,
               ),
-              title: const Text("Logout"),
+              title: const Text("Keluar"),
               trailing: const Icon(Icons.arrow_forward_ios_rounded),
               onTap: () {
                 Navigator.pushNamed(context, '/login');
@@ -128,6 +128,63 @@ class SettingsScreen extends StatelessWidget {
             ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class AppSet extends StatefulWidget {
+  final String text;
+  const AppSet({
+    super.key,
+    required this.text,
+  });
+
+  @override
+  State<AppSet> createState() => _AppSetState();
+}
+
+class _AppSetState extends State<AppSet> {
+  
+  bool light = true;
+
+  @override
+  Widget build(BuildContext context) {
+    final themeProvider = Provider.of<ThemeProvider>(context);
+
+    final textColor = themeProvider.isDarkTheme ? Colors.white : Colors.black;
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
+      child: Column(
+        children: [
+          Row(
+            children: [
+              Text(
+                widget.text,
+                style: TextStyle(fontSize: 16, color: textColor),
+              ),
+              const Spacer(),
+              Switch(
+                value: light,
+                activeColor: primaryColor,
+                onChanged: (bool value) {
+                  setState(() {
+                    light = value;
+                  });
+                },
+              ),
+            ],
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+          const Divider(
+            thickness: 1,
+          ),
+          const SizedBox(
+            height: 10,
+          )
+        ],
       ),
     );
   }

@@ -20,6 +20,7 @@ const blue = Color(0xFF00AED5);
 const lightBlue = Color(0xFF38BBDA);
 
 const red = Color(0xFFED2739);
+const orange = Color(0xFFED6723);
 const purple = Color(0xFF87027B);
 
 // Typography

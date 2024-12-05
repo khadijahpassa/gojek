@@ -7,7 +7,7 @@ import 'package:gojek/ui/auth/register_screen.dart';
 import 'package:gojek/ui/payment/pay_screen.dart';
 import 'package:gojek/ui/profile/profile_screen.dart';
 import 'package:gojek/ui/splash/splash_screen.dart';
-import 'package:provider/provider.dart'; // Gunakan provider
+import 'package:provider/provider.dart'; 
 
 void main() async {
   await dotenv.load(fileName: ".env");
@@ -45,7 +45,7 @@ class Gojek extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => const SplashScreen(),
-        '/home': (context) => const Home(),
+        '/home': (context) => const HomeScreen(),
         '/login': (context) => const LoginScreen(),
         '/register': (context) => const RegisterScreen(),
         '/profile': (context) => const ProfileScreen(),

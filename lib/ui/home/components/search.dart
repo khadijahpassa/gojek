@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gojek/consts.dart';
@@ -63,7 +65,7 @@ class Search extends StatelessWidget {
                       borderRadius: BorderRadius.circular(35 / 2),
                     ),
                     clipBehavior: Clip.hardEdge,
-                    child: Image.asset('assets/images/Avatar.png'),
+                    child: Image.asset('assets/images/avatar.png'),
                   ),
                 ),
                 Positioned(

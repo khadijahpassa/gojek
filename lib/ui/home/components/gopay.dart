@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:gojek/consts.dart';
@@ -32,8 +34,8 @@ class Pay extends StatelessWidget {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Padding(
-              padding: const EdgeInsets.only(left: 10, right: 10),
+            const Padding(
+              padding: EdgeInsets.only(left: 10, right: 10),
             ),
             Column(
               children: [

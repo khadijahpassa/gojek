@@ -1,26 +1,33 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gojek/consts.dart';
+import 'package:gojek/state-management/theme_provider.dart';
+import 'package:provider/provider.dart';
 
 class BottomNavBar extends StatelessWidget {
   const BottomNavBar({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final themeProvider = Provider.of<ThemeProvider>(context);
+
     return SafeArea(
       child: Container(
         padding: const EdgeInsets.all(defaultPadding),
-        color: Colors.white,
+        color: themeProvider.isDarkTheme ? black : Colors.white,
         child: Column(
           children: [
             Row(
               children: [
-                Image.asset("assets/images/money.png", width: 20),
+                SvgPicture.asset("assets/icons/money.svg", width: 20, color: themeProvider.isDarkTheme ? white : secondaryColor),
                 const SizedBox(width: 10),
                 // Cash Text
-                const Text(
+                Text(
                   "Cash",
                   style: TextStyle(
-                    color: black,
+                    color: themeProvider.isDarkTheme ? Colors.white : black,
                     fontSize: 18,
                     fontWeight: FontWeight.w500,
                     height: 0,
@@ -35,7 +42,7 @@ class BottomNavBar extends StatelessWidget {
                   height: 36,
                   padding: const EdgeInsets.symmetric(vertical: 2),
                   decoration: ShapeDecoration(
-                    color: Colors.white,
+                    color: themeProvider.isDarkTheme ? darkGrey : Colors.white,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(40),
                     ),
@@ -48,12 +55,12 @@ class BottomNavBar extends StatelessWidget {
                       ),
                     ],
                   ),
-                  child: const Center(
+                  child: Center(
                     child: Text(
                       "Voucher",
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                        color: black,
+                        color: themeProvider.isDarkTheme ? Colors.white : black,
                         fontSize: 16,
                         fontWeight: FontWeight.w500,
                         height: 0,
@@ -68,18 +75,18 @@ class BottomNavBar extends StatelessWidget {
                     shape: BoxShape.circle,
                     border: Border.all(
                       color: lightGrey,
-                      width: 2,
+                      width: 1,
                     ),
                   ),
-                  child: const Icon(
-                    Icons.library_add_sharp,
-                    color: black,
-                    size: 23,
+                  child: SvgPicture.asset(
+                    'assets/icons/ic_add.svg',
+                    color: themeProvider.isDarkTheme ?  white : darkGrey,
+                    width: 23,
                   ),
                 ),
               ],
             ),
-            SizedBox(height: 4),
+            const SizedBox(height: 4),
             Container(
               margin: const EdgeInsets.only(top: defaultPadding),
               padding: const EdgeInsets.symmetric(vertical: 13, horizontal: 13),
@@ -118,16 +125,17 @@ class BottomNavBar extends StatelessWidget {
                 Container(
                   padding: const EdgeInsets.all(5),
                   decoration: BoxDecoration(
+                    color: themeProvider.isDarkTheme ?  darkGrey : Colors.transparent,
                     shape: BoxShape.circle,
                     border: Border.all(
-                      color: primaryColor,
+                      color: themeProvider.isDarkTheme ?  Colors.transparent : secondaryColor,
                       width: 3,
                     ),
                   ),
-                  child: const Icon(
-                    Icons.date_range_rounded,
-                    color: secondaryColor,
-                    size: 45,
+                  child: SvgPicture.asset(
+                    'assets/icons/ic_schedule.svg',
+                    color: themeProvider.isDarkTheme ?  white : secondaryColor,
+                    width: 45,
                   ),
                 ),
                 Container(

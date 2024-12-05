@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gojek/consts.dart';
@@ -12,10 +14,20 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final themeProvider = Provider.of<ThemeProvider>(context);
+    final textColor = themeProvider.isDarkTheme ? Colors.white : Colors.black;
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Profile'),
+        title: Text(
+          'Profil',
+          style: TextStyle(
+            color: textColor,
+            fontSize: 24,
+            fontFamily: 'SF Pro',
+            fontWeight: FontWeight.w700,
+          ),
+        ),
+        backgroundColor: themeProvider.isDarkTheme ? black : Colors.white,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           onPressed: () {
@@ -50,7 +62,7 @@ class ProfileScreen extends StatelessWidget {
                 const Spacer(),
                 IconButton(
                   icon: SvgPicture.asset('assets/icons/profile_edit.svg',
-                      color: themeProvider.isDarkTheme ? black : Colors.white,),
+                      color: themeProvider.isDarkTheme ? black : Colors.white),
                   onPressed: () {},
                 ),
               ],
@@ -72,7 +84,7 @@ class ProfileScreen extends StatelessWidget {
         height: 24,
         color: themeProvider.isDarkTheme ? white : darkGrey,
       ),
-      title: Text(icon.title, style: TextStyle(fontWeight: FontWeight.bold)),
+      title: Text(icon.title, style: const TextStyle(fontWeight: FontWeight.bold)),
       subtitle: icon.subtitle != null ? Text(icon.subtitle!) : null,
       trailing: const Icon(Icons.arrow_forward_ios, size: 16),
       onTap: () {},
